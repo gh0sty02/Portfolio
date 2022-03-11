@@ -1,12 +1,13 @@
 import { Box, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { FaGhost } from "react-icons/fa";
 
 const Logo = () => {
   const { colorMode } = useColorMode();
   const router = useRouter();
   return (
     <Box className="logo" onClick={() => router.push("/")}>
-      <svg
+      {/* <svg
         version="1.1"
         id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +36,8 @@ const Logo = () => {
     		c4.955-5.283,7.433-12.125,7.433-20.528c0-5.776-1.182-11.141-3.545-16.098C784.741,951.026,781.395,947.317,777.062,944.856z"
           />
         </g>
-      </svg>
+      </svg> */}
+      <FaGhost fontSize="20" />
     </Box>
   );
 };

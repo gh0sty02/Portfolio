@@ -9,10 +9,10 @@ import {
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
-import Link from "./utils/Link";
+import Link from "components/utils/Link";
 import React from "react";
-import { links } from "../data/NavLinks";
-import Logo from "./Logo";
+import { links } from "data/NavLinks";
+import Logo from "components/utils/Logo";
 import { useRouter } from "next/router";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 
@@ -29,6 +29,14 @@ const NavBar = () => {
       props={{
         rounded: "md",
         p: "2",
+        _hover: {
+          transform: "translateY(-2px)",
+          transition: "all 0.2s ease-in-out",
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+        },
+        _active: {
+          transform: "translateY(2px)",
+        },
       }}
     >
       {link!.name}
@@ -61,7 +69,18 @@ const NavBar = () => {
               </HStack>
             </HStack>
             <Flex alignItems={"center"}>
-              <Button aria-label="Switch Theme" onClick={toggleColorMode}>
+              <Button
+                _hover={{
+                  transform: "translateY(-2px)",
+                  transition: "all 0.2s ease-in-out",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+                }}
+                _active={{
+                  transform: "translateY(2px)",
+                }}
+                aria-label="Switch Theme"
+                onClick={toggleColorMode}
+              >
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>
             </Flex>

@@ -2,7 +2,7 @@ import NextLink from "next/link";
 import { Link as ChakraLink, useColorModeValue } from "@chakra-ui/react";
 import { FC } from "react";
 
-const Link: FC<{ href: string; currentPath: string; props: any }> = ({
+const Link: FC<{ href: string; currentPath?: string; props: {} }> = ({
   children,
   href,
   currentPath,

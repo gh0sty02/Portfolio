@@ -11,6 +11,9 @@ const styles = {
     body: {
       bg: mode("gray.50", "#151a23")(props),
     },
+    fonts: {
+      Text: "Poppins",
+    },
   }),
 };
 

@@ -9,15 +9,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import Logo from "./Logo";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-  FaGithub,
-  FaHeart,
-} from "react-icons/fa";
+import Logo from "components/utils/Logo";
+import { FaGithub } from "react-icons/fa";
+import { socials } from "data/Socials";
 
 const Footer = () => {
   return (
@@ -39,30 +33,16 @@ const Footer = () => {
         >
           <Logo />
           <ButtonGroup variant="ghost">
-            <IconButton
-              icon={<FaTwitter />}
-              aria-label="Twitter"
-              as="a"
-              href="https://twitter.com/Pranayyadav08"
-            />
-            <IconButton
-              icon={<FaLinkedin />}
-              aria-label="LinkedIn"
-              as="a"
-              href="https://www.linkedin.com/in/pranayyadav02/"
-            />
-            <IconButton
-              icon={<FaInstagram />}
-              aria-label="Instagram"
-              as="a"
-              href="https://www.instagram.com/pranayy02/"
-            />
-            <IconButton
-              icon={<FaGithub />}
-              aria-label="Github"
-              as="a"
-              href="https://github.com/gh0sty02/"
-            />
+            {socials.map((social) => (
+              <IconButton
+                _hover={{ color: "green.500" }}
+                icon={social.icon}
+                as="a"
+                href={social.href}
+                aria-label={social.name}
+                key={social.name}
+              />
+            ))}
           </ButtonGroup>
         </Stack>
         <Divider pt={2} />
