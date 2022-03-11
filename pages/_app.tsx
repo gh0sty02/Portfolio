@@ -1,8 +1,21 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import { AnimatePresence } from "framer-motion";
+import theme from "../config/theme";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <AnimatePresence>
+      <ChakraProvider theme={theme}>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </ChakraProvider>
+    </AnimatePresence>
+  );
 }
 
-export default MyApp
+export default MyApp;
