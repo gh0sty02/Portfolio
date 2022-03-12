@@ -23,6 +23,7 @@ const About = () => {
                 as="h1"
                 fontSize={{ base: "28px", md: "32px", lg: "36px" }}
                 mb={4}
+                textTransform="uppercase"
               >
                 About Me
               </Heading>

@@ -3,9 +3,7 @@ import { Container, Divider } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Profile from "components/Profile";
-const Stack = dynamic(() => import("components/skills/TechStack"), {
-  ssr: false,
-});
+import Stack from "components/skills/TechStack";
 
 const Home: NextPage = () => {
   return (

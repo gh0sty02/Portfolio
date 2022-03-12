@@ -1,7 +1,7 @@
 import { Text, useColorModeValue } from "@chakra-ui/react";
 import { FC, ReactNode } from "react";
 
-const Paragraph: FC<{ children: ReactNode; props: any }> = ({
+const Paragraph: FC<{ children: ReactNode; props?: any }> = ({
   children,
   props,
 }) => {
