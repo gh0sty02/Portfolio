@@ -112,7 +112,6 @@ const ExperienceScreen = () => {
                   </List>
                 </Box>
               </SimpleGrid>
-              <Divider />
             </SlideFade>
           </Box>
         </Container>

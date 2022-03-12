@@ -45,7 +45,8 @@ const ProjectScreen = () => {
                 Here are some of My Projects.
               </Paragraph>
             </Box>
-
+          </SlideFade>
+          <SlideFade delay={0.2} in={true} offsetY={80}>
             {projects.map((proj) => {
               return (
                 <Box key={proj.name}>
