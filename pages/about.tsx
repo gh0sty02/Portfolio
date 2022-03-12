@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import Paragraph from "components/utils/Paragraph";
+import Head from "next/head";
 
 const coolStuff = [
   "React",
@@ -31,6 +32,20 @@ const About = () => {
   const [show, setShow] = useState(false);
   return (
     <>
+      <Head>
+        <title>Pranay Yadav | About</title>
+        <link rel="icon" href="/meta-image.svg" />
+        <meta
+          name="description"
+          content="Pranay Yadav | Full stack developer "
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pranayyadav.vercel.app" />
+        <meta
+          property="og:title"
+          content="Pranay Yadav | Full stack developer "
+        />
+      </Head>
       <main>
         <Container maxW="container.lg" mt="10">
           <SlideFade in={true} offsetY={80}>

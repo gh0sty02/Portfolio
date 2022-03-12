@@ -17,12 +17,27 @@ import {
 import { BiRightArrow } from "react-icons/bi";
 import Paragraph from "components/utils/Paragraph";
 import { experience as exp } from "data/experience";
+import Head from "next/head";
 
 const ExperienceScreen = () => {
   const svgColor = useColorModeValue("teal.500", "cyan.200");
   console.log(theme.config.initialColorMode);
   return (
     <>
+      <Head>
+        <title>Pranay Yadav | Experience</title>
+        <link rel="icon" href="/meta-image.svg" />
+        <meta
+          name="description"
+          content="Pranay Yadav | Full stack developer "
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pranayyadav.vercel.app" />
+        <meta
+          property="og:title"
+          content="Pranay Yadav | Full stack developer "
+        />
+      </Head>
       <main>
         <Container maxW="container.lg">
           <SlideFade in={true} offsetY={80}>

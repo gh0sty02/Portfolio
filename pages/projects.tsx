@@ -23,12 +23,27 @@ import { motion } from "framer-motion";
 import { DURATIONS, easing } from "config/animations";
 import Content from "components/Projects/ProjectDescription";
 import CoverImage from "components/Projects/CoverImage";
+import Head from "next/head";
 
 const ProjectScreen = () => {
   const borderColor = useColorModeValue("gray.300", "gray.700");
 
   return (
     <>
+      <Head>
+        <title>Pranay Yadav | Projects</title>
+        <link rel="icon" href="/meta-image.svg" />
+        <meta
+          name="description"
+          content="Pranay Yadav | Full stack developer "
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pranayyadav.vercel.app" />
+        <meta
+          property="og:title"
+          content="Pranay Yadav | Full stack developer "
+        />
+      </Head>
       <main>
         <Container maxW="container.lg" mt="10">
           <SlideFade in={true} offsetY={80}>
