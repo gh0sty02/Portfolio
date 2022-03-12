@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Heading, Text, Link, SlideFade } from "@chakra-ui/react";
+import { Box, Heading, Text, Link, SlideFade, Button } from "@chakra-ui/react";
 import Paragraph from "components/utils/Paragraph";
+import { FaEnvelope } from "react-icons/fa";
 
 const Profile = () => {
   return (
@@ -21,6 +22,7 @@ const Profile = () => {
             props={{
               fontSize: "2xl",
               lineHeight: "1.6",
+              marginBottom: "4",
             }}
           >
             Final Year Computer Science Student, specializing full Stack Web
@@ -63,6 +65,20 @@ const Profile = () => {
             {". "}
             Thank you for visiting my Personal website!
           </Paragraph>
+          <Button
+            size="lg"
+            colorScheme="green"
+            bg="green.500"
+            href="mailto:pranayyadav08@gmail.com"
+            borderRadius={5}
+            py={3}
+            px="6"
+            as="a"
+            mb="-4"
+            leftIcon={<FaEnvelope />}
+          >
+            Mail
+          </Button>
         </Box>
       </SlideFade>
     </>

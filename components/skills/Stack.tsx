@@ -20,11 +20,11 @@ const TechStack = ({ onOpen }: ISkillSetModal) => {
         Primary Stack & Technologies
       </Heading>
       <Box fontSize="xl" lineHeight="1.6">
-        As a full-stack web developer there are alot of tools you use in your
-        daily bases, Here are few tools that are cup of my{" "}
+        As a full-stack web developer there are lot of tools that I use on daily
+        basis, Here are few tools that are my cup of{" "}
         <Tooltip
           hasArrow
-          label="I Love Tea !"
+          label="I drink a lot of tea"
           bg="gray.300"
           background="#232323"
           color="white"

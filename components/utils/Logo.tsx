@@ -37,7 +37,10 @@ const Logo = () => {
           />
         </g>
       </svg> */}
-      <FaGhost fontSize="20" />
+      <FaGhost
+        fill={`${colorMode === "light" ? "black" : "#38a169"}`}
+        fontSize="30"
+      />
     </Box>
   );
 };
