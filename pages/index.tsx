@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Pranay Yadav | Home</title>
-        <link rel="icon" href="/meta-image.svg" />
+        <link rel="icon" href="/logo.svg" />
         <meta
           name="description"
           content="Pranay Yadav | Full stack developer "

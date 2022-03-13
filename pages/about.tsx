@@ -28,13 +28,13 @@ const coolStuff = [
   "Tea",
 ];
 
-const About = () => {
+const AboutScreen = () => {
   const [show, setShow] = useState(false);
   return (
     <>
       <Head>
         <title>Pranay Yadav | About</title>
-        <link rel="icon" href="/meta-image.svg" />
+        <link rel="icon" href="/logo.svg" />
         <meta
           name="description"
           content="Pranay Yadav | Full stack developer "
@@ -60,12 +60,18 @@ const About = () => {
               </Heading>
               <Collapse in={show} startingHeight={100}>
                 <Paragraph props={{ fontSize: "xl", lineHeight: "1.6" }}>
-                  I'm in my Final Year of Graduation of Bachelor's Degree
-                  specializing in Computer Science. I specializes in Full Stack
-                  Web Development and recently I've found myself studying UI/UX
-                  too. I had this wierd curiosity for Computers and their
+                  Hi! I'm Pranay and I am Full Stack Developer based in Mumbai,
+                  India India. I build fast and beautiful websites with modern
+                  technology. I love challenges and complex problems that I can
+                  work on; also I enjoy spending my time learning about new
+                  things. Recently I've found myself studying UI/UX too.
+                  <br /> I had this weird curiosity for computers and their
                   technologies since I was a child, so here I am, Learning,
-                  Exploring and Building Projects around the domain I love!
+                  Exploring, and Building Projects around the domain I love!
+                  <br /> I am currently in my final year of Graduation with
+                  Bachelor's Degree specializing in Computer Science. Outside of
+                  programming, I enjoy playing video games, reading books
+                  especially those about stoicism, traveling, and much more.
                 </Paragraph>
               </Collapse>
               <LightMode>
@@ -110,4 +116,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutScreen;

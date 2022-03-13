@@ -11,7 +11,6 @@ import {
   ListIcon,
   useColorModeValue,
   Divider,
-  useTheme,
   theme,
 } from "@chakra-ui/react";
 import { BiRightArrow } from "react-icons/bi";
@@ -26,7 +25,7 @@ const ExperienceScreen = () => {
     <>
       <Head>
         <title>Pranay Yadav | Experience</title>
-        <link rel="icon" href="/meta-image.svg" />
+        <link rel="icon" href="/logo.svg" />
         <meta
           name="description"
           content="Pranay Yadav | Full stack developer "
@@ -105,9 +104,9 @@ const ExperienceScreen = () => {
                       return (
                         <ListItem
                           fontFamily="Poppins"
+                          fontSize="md"
                           mb="1"
                           key={exp.id + desc + ""}
-                          fontSize="md"
                           display="flex"
                           alignItems="center"
                           justifyContent="flex-start"
@@ -124,6 +123,31 @@ const ExperienceScreen = () => {
                         </ListItem>
                       );
                     })}
+                    <ListItem
+                      fontFamily="Poppins"
+                      fontSize="md"
+                      mb="1"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="flex-start"
+                    >
+                      <ListIcon
+                        as={BiRightArrow}
+                        color={svgColor}
+                        display="block"
+                        fontSize="20px"
+                      />
+                      <Text
+                        as="a"
+                        href={exp.certLink}
+                        display="block"
+                        color="green.500"
+                        fontWeight="medium"
+                        variant="description"
+                      >
+                        Click here to view Certificate
+                      </Text>
+                    </ListItem>
                   </List>
                 </Box>
               </SimpleGrid>

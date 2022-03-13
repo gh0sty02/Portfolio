@@ -1,7 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Heading, Text, Link, SlideFade, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Link,
+  SlideFade,
+  Button,
+  ButtonGroup,
+} from "@chakra-ui/react";
 import Paragraph from "components/utils/Paragraph";
 import { FaEnvelope } from "react-icons/fa";
+import { IoNewspaper } from "react-icons/io5";
 
 const Profile = () => {
   return (
@@ -65,20 +74,41 @@ const Profile = () => {
             {". "}
             Thank you for visiting my Personal website!
           </Paragraph>
-          <Button
-            size="lg"
-            colorScheme="green"
-            bg="green.500"
-            href="mailto:pranayyadav08@gmail.com"
-            borderRadius={5}
-            py={3}
-            px="6"
-            as="a"
-            mb="-4"
-            leftIcon={<FaEnvelope />}
-          >
-            Mail
-          </Button>
+          <ButtonGroup mb="-4" gap="4">
+            <Button
+              size="lg"
+              colorScheme="green"
+              bg="green.500"
+              href="mailto:pranayyadav08@gmail.com"
+              borderRadius={5}
+              py={3}
+              px="6"
+              as="a"
+              leftIcon={<FaEnvelope />}
+            >
+              Mail
+            </Button>
+
+            <Button
+              colorScheme="green"
+              size="lg"
+              bg="green.500"
+              href="https://drive.google.com/file/d/1qii8GCWtdQh-ETpZCdjDD35__RX1h3rL/view?usp=sharing"
+              borderRadius={5}
+              py={3}
+              px="6"
+              as="a"
+              leftIcon={<IoNewspaper />}
+            >
+              <a
+                href="https://drive.google.com/file/d/1qii8GCWtdQh-ETpZCdjDD35__RX1h3rL/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume
+              </a>
+            </Button>
+          </ButtonGroup>
         </Box>
       </SlideFade>
     </>

@@ -1,26 +1,14 @@
 import {
   Box,
   Container,
-  Divider,
-  Grid,
-  GridItem,
   Heading,
   SlideFade,
-  Stack,
-  Image,
-  Button,
   useColorModeValue,
   SimpleGrid,
-  Flex,
-  Text,
-  AspectRatio,
 } from "@chakra-ui/react";
 import Paragraph from "components/utils/Paragraph";
 import React from "react";
 import { projects } from "data/Projects";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { DURATIONS, easing } from "config/animations";
 import Content from "components/Projects/ProjectDescription";
 import CoverImage from "components/Projects/CoverImage";
 import Head from "next/head";
@@ -32,7 +20,7 @@ const ProjectScreen = () => {
     <>
       <Head>
         <title>Pranay Yadav | Projects</title>
-        <link rel="icon" href="/meta-image.svg" />
+        <link rel="icon" href="/logo.svg" />
         <meta
           name="description"
           content="Pranay Yadav | Full stack developer "
