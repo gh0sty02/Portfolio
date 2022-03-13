@@ -1,7 +1,7 @@
 import styles from "styles/Home.module.css";
 import { Container, Divider } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import dynamic from "next/dynamic";
+
 import Profile from "components/Profile";
 import Stack from "components/skills/TechStack";
 import Head from "next/head";

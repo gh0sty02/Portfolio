@@ -90,6 +90,8 @@ const Profile = () => {
             </Button>
 
             <Button
+              target="_blank"
+              as="a"
               colorScheme="green"
               size="lg"
               bg="green.500"
@@ -97,16 +99,9 @@ const Profile = () => {
               borderRadius={5}
               py={3}
               px="6"
-              as="a"
               leftIcon={<IoNewspaper />}
             >
-              <a
-                href="https://drive.google.com/file/d/1qii8GCWtdQh-ETpZCdjDD35__RX1h3rL/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Resume
-              </a>
+              Resume
             </Button>
           </ButtonGroup>
         </Box>
