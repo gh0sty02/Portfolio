@@ -34,8 +34,8 @@ const Profile = () => {
               marginBottom: "4",
             }}
           >
-            Final Year Computer Science Student, specializing full Stack Web
-            Development, focused on{" "}
+            Computer Science graduate with a focus on Full Stack Web
+            Development. Proficient in{" "}
             <Link
               href="https://www.javascript.info"
               color="green.500"

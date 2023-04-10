@@ -5,6 +5,8 @@ import {
   SlideFade,
   useColorModeValue,
   SimpleGrid,
+  Text,
+  Link,
 } from "@chakra-ui/react";
 import Paragraph from "components/utils/Paragraph";
 import React from "react";
@@ -47,6 +49,19 @@ const ProjectScreen = () => {
               <Paragraph props={{ fontSize: "xl", lineHeight: "1.6" }}>
                 Here are some of My Projects.
               </Paragraph>
+              <Text fontSize="xs">
+                Some links might not work as the projects were hosted on
+                Heroku`s free tier, which is no longer available. However, you
+                can still access the code on{" "}
+                <Link
+                  color="teal.500"
+                  href="https://github.com/gh0sty02/"
+                  isExternal
+                >
+                  Github
+                </Link>
+                {/* <Link href="https://github.com/gh0sty02/">Github</Link>. */}
+              </Text>
             </Box>
           </SlideFade>
           <SlideFade delay={0.2} in={true} offsetY={80}>

@@ -17,6 +17,8 @@ import {
   SiExpress,
   SiNestjs,
   SiTailwindcss,
+  SiD3Dotjs,
+  SiPostgresql,
 } from "react-icons/si";
 export type SkillCategory =
   | "languages"
@@ -81,6 +83,10 @@ export const Skills: {
       name: "Redux",
       icon: SiRedux,
     },
+    {
+      name: "D3.Js",
+      icon: SiD3Dotjs,
+    },
   ],
   database: [
     {
@@ -90,6 +96,10 @@ export const Skills: {
     {
       name: "MongoDb",
       icon: SiMongodb,
+    },
+    {
+      name: "PostgreSQL",
+      icon: SiPostgresql,
     },
   ],
   cicd: [
