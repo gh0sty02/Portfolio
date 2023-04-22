@@ -6,7 +6,7 @@ export const projects = [
       "Stonkify is a E-commerce Web Application built using Typescript, Nodejs, Nextjs and MongoDB with Redux for App Wide State Management. It has all the feature that a Ecommerce website has, like Product Management, Order Management, Payment Management, etc.",
     image: "/stonkify.jpg",
     isLeft: true,
-    link: "https://stonkify.vercel.app",
+    link: "https://github.com/gh0sty02/Stonkify",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const projects = [
     description:
       "A Full Stack Tour Booking App with built using Modern Technologies such as React.js, Node.js, Express.js, MongoDB and Redux Toolkit. Includes features such as Real-Time Location, Image Upload, Authentication, Authorization, etc.",
     image: "/natours.png",
-    link: "https://natours-remaster.herokuapp.com/",
+    link: "https://github.com/gh0sty02/natours-remastered",
   },
   {
     id: 3,
