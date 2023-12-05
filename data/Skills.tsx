@@ -12,7 +12,6 @@ import {
   SiGit,
   SiVisualstudiocode,
   SiChakraui,
-  SiJava,
   SiPython,
   SiExpress,
   SiNestjs,
@@ -20,6 +19,8 @@ import {
   SiD3Dotjs,
   SiPostgresql,
 } from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
+import { FaRust } from "react-icons/fa";
 export type SkillCategory =
   | "languages"
   | "backend"
@@ -47,12 +48,12 @@ export const Skills: {
       icon: SiTypescript,
     },
     {
-      name: "Java",
-      icon: SiJava,
-    },
-    {
       name: "Python",
       icon: SiPython,
+    },
+    {
+      name: "Rust",
+      icon: FaRust,
     },
   ],
   backend: [
@@ -64,10 +65,6 @@ export const Skills: {
       name: "Express.js",
       icon: SiExpress,
     },
-    {
-      name: "Nest.js",
-      icon: SiNestjs,
-    },
   ],
   frontend: [
     {
@@ -75,10 +72,9 @@ export const Skills: {
       icon: SiReact,
     },
     {
-      name: "NextJS",
-      icon: SiNextdotjs,
+      name: "NextJs",
+      icon: TbBrandNextjs,
     },
-
     {
       name: "Redux",
       icon: SiRedux,

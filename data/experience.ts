@@ -6,10 +6,13 @@ export const experience = [
     title: "Frontend Developer",
     duration: "July 2022 - Current",
     description: [
-      " Created 4 fully functional dashboards and 3 Client Utility Web pages",
-      " Multiple statistical charts and tables were included on each Dashboard page.",
-      "The charts and tables were created using d3js and vanilla JavaScript and are updated programmatically at regular intervals",
-      "The dashboards are being used by customer support to identify and resolve customer issues quickly.",
+      " Solely designed and implemented feature-rich dashboards using JavaScript and D3.js.",
+      " Engineered JavaScript routine for minute-by-minute updates, fetching and processing backend data.",
+      " Ensured optimal dashboard performance through data concatenation and filtering.",
+      " Developed frontend for log parser, converting zip files into tables for efficient information interpretation.Implemented mechanism for deeply nested logs",
+      " Customized librespeed for an in-house speed test app with area charts for upload and download speeds.",
+      " Created admin dashboard, reducing customer support issue resolution time by 60%.",
+      " Developed a 3D visualization using OpenGlobus to represent network event hops across multiple data centers.",
     ],
   },
   {

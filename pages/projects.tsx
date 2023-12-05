@@ -10,13 +10,14 @@ import {
 } from "@chakra-ui/react";
 import Paragraph from "components/utils/Paragraph";
 import React from "react";
-import { projects } from "data/Projects";
+import { getProjects } from "data/Projects";
 import Content from "components/Projects/ProjectDescription";
 import CoverImage from "components/Projects/CoverImage";
 import Head from "next/head";
 
 const ProjectScreen = () => {
   const borderColor = useColorModeValue("gray.300", "gray.700");
+  const projects = getProjects();
 
   return (
     <>

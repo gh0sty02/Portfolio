@@ -5,6 +5,7 @@ import {
   FaJs,
   FaNodeJs,
   FaReact,
+  FaRust,
 } from "react-icons/fa";
 
 export const tools = [
@@ -15,11 +16,11 @@ export const tools = [
     url: "https://www.javascript.info",
   },
   {
-    name: "Java",
+    name: "Rust",
     description:
-      "Java is a high-level,  object-oriented programming language. ",
-    icon: <FaJava fontSize="20px" />,
-    url: "https://www.figma.com/",
+      "Rust is a Fast, safe, concurrent systems programming language",
+    icon: <FaRust fontSize="20px" />,
+    url: "https://www.rust-lang.org/",
   },
   {
     name: "Node.js",

@@ -8,7 +8,7 @@ import Navbar from "components/Layout/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <ChakraProvider theme={theme}>
         <Navbar />
         <Component {...pageProps} />
