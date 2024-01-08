@@ -50,7 +50,7 @@ const ProjectScreen = () => {
               <Paragraph props={{ fontSize: "xl", lineHeight: "1.6" }}>
                 Here are some of My Projects.
               </Paragraph>
-              <Text fontSize="xs">
+              {/* <Text fontSize="xs">
                 Some links might not work as the projects were hosted on
                 Heroku`s free tier, which is no longer available. However, you
                 can still access the code on{" "}
@@ -61,8 +61,8 @@ const ProjectScreen = () => {
                 >
                   Github
                 </Link>
-                {/* <Link href="https://github.com/gh0sty02/">Github</Link>. */}
-              </Text>
+              
+              </Text> */}
             </Box>
           </SlideFade>
           <SlideFade delay={0.2} in={true} offsetY={80}>
