@@ -1,5 +1,13 @@
 export const projectsArr = [
   {
+    name: "Flowify",
+    description:
+      "Flowify is a robust Trello-inspired project management tool, using Next.js, Prisma, Stripe, Tailwind CSS, Shadcn UI, Zustand, and MySQL. It enhances team productivity with features like task management and customizable boards.",
+    image: "/flowify.png",
+
+    link: "https://github.com/gh0sty02/Flowify",
+  },
+  {
     name: "ConverseX",
     description:
       "ConverseX is an advanced communication platform, leveraging Next.js, Socket.io, MySql, Typescript, and Tailwind. It offers a seamless user experience with real-time messaging, voice channels, robust server and channel management, user authentication, emojis, multimedia sharing, user profiles, and powerful moderation tools.",
@@ -33,7 +41,7 @@ export const projectsArr = [
     description:
       "WebBlogs is a Blog application buit using Next.js, GraphCMS, TypeScript and Tailwind Css. It uses GraphCMS as the Content Management System to get Data form the Server using GraphQL and Next.js to use it's Server side rendering & static site generation capabilities .",
     image: "/weblogs.jpg",
-    link: "https://weblogs.vercel.app/",
+    link: "https://github.com/gh0sty02/cms-blog-app",
   },
 ];
 
