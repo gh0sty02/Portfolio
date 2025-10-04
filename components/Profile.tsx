@@ -7,10 +7,10 @@ import {
   SlideFade,
   Button,
   ButtonGroup,
-} from "@chakra-ui/react";
-import Paragraph from "components/utils/Paragraph";
-import { FaEnvelope } from "react-icons/fa";
-import { IoNewspaper } from "react-icons/io5";
+} from '@chakra-ui/react';
+import Paragraph from 'components/utils/Paragraph';
+import { FaEnvelope } from 'react-icons/fa';
+import { IoNewspaper } from 'react-icons/io5';
 
 const Profile = () => {
   return (
@@ -19,7 +19,7 @@ const Profile = () => {
         <Box>
           <Heading
             as="h1"
-            fontSize={{ base: "28px", md: "40px", lg: "48px" }}
+            fontSize={{ base: '28px', md: '40px', lg: '48px' }}
             mb={2}
           >
             {"Hey, I'm Pranay Yadav."}
@@ -29,50 +29,13 @@ const Profile = () => {
           </Text>
           <Paragraph
             props={{
-              fontSize: "2xl",
-              lineHeight: "1.6",
-              marginBottom: "4",
+              fontSize: '2xl',
+              lineHeight: '1.6',
+              marginBottom: '4',
             }}
           >
-            Computer Science graduate with a focus on Full Stack Web
-            Development. Proficient in{" "}
-            <Link
-              href="https://www.javascript.info"
-              color="green.500"
-              fontWeight="500"
-              isExternal
-            >
-              Javascript
-            </Link>
-            {", "}
-            <Link
-              href="https://reactjs.org/"
-              color="green.500"
-              fontWeight="500"
-              isExternal
-            >
-              React
-            </Link>
-            {", "}
-            <Link
-              href="https://nodejs.org/en/"
-              color="green.500"
-              fontWeight="500"
-              isExternal
-            >
-              Node
-            </Link>
-            {" and "}
-            <Link
-              href="https://www.typescriptlang.org/"
-              color="green.500"
-              fontWeight="500"
-              isExternal
-            >
-              TypeScript
-            </Link>
-            {". "}
-            Thank you for visiting my Personal website!
+            Full Stack Web Developer skilled in JavaScript, React, Node.js, and
+            TypeScript. Welcome to my personal website - thanks for stopping by!
           </Paragraph>
           <ButtonGroup mb="-4" gap="4">
             <Button
@@ -95,7 +58,7 @@ const Profile = () => {
               colorScheme="green"
               size="lg"
               bg="green.500"
-              href="https://drive.google.com/file/d/1YSJ1CMoKEfb9RF-ufUJnS3s873ZXO8us/view?usp=sharing"
+              href={process.env.NEXT_PUBLIC_RESUME_LINK}
               borderRadius={5}
               py={3}
               px="6"

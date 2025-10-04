@@ -7,10 +7,10 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-} from "@chakra-ui/react";
-import styles from "./skills.module.css";
-import { Skills, splitSkills } from "../../data/Skills";
-import SkillList from "./SkillList";
+} from '@chakra-ui/react';
+import styles from './skills.module.css';
+import { Skills, splitSkills } from '../../data/Skills';
+import SkillList from './SkillList';
 
 type ISkillSetModal = {
   isOpen: boolean;
@@ -23,8 +23,8 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
   const frontendCols = splitSkills(Skills.frontend);
   const cicdCols = splitSkills(Skills.cicd);
   const dataBaseCols = splitSkills(Skills.database);
-  const uiFrameWorkCols = splitSkills(Skills["ui frameworks"]);
-  const productivityCols = splitSkills(Skills["productivity boost"]);
+  const uiFrameWorkCols = splitSkills(Skills['ui frameworks']);
+  const productivityCols = splitSkills(Skills['tools']);
 
   return (
     <Modal

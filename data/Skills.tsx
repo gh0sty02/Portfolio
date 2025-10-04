@@ -1,16 +1,14 @@
-import { IconType } from "react-icons";
+import { IconType } from 'react-icons';
 import {
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
   SiReact,
-  SiNextdotjs,
   SiRedux,
   SiDocker,
   SiMysql,
   SiMongodb,
   SiGit,
-  SiVisualstudiocode,
   SiChakraui,
   SiPython,
   SiExpress,
@@ -18,17 +16,22 @@ import {
   SiTailwindcss,
   SiD3Dotjs,
   SiPostgresql,
-} from "react-icons/si";
-import { TbBrandNextjs } from "react-icons/tb";
-import { FaRust } from "react-icons/fa";
+  SiShadcnui,
+  SiJira,
+  SiWebpack,
+  SiJest,
+} from 'react-icons/si';
+
+import { BiLogoVisualStudio } from 'react-icons/bi';
+import { TbBrandNextjs } from 'react-icons/tb';
 export type SkillCategory =
-  | "languages"
-  | "backend"
-  | "frontend"
-  | "cicd"
-  | "database"
-  | "ui frameworks"
-  | "productivity boost";
+  | 'languages'
+  | 'backend'
+  | 'frontend'
+  | 'cicd'
+  | 'database'
+  | 'ui frameworks'
+  | 'tools';
 
 export type Skill = {
   name: string;
@@ -40,86 +43,102 @@ export const Skills: {
 } = {
   languages: [
     {
-      name: "JavaScript",
+      name: 'JavaScript',
       icon: SiJavascript,
     },
     {
-      name: "Typescript",
+      name: 'Typescript',
       icon: SiTypescript,
     },
     {
-      name: "Python",
+      name: 'Python',
       icon: SiPython,
-    },
-    {
-      name: "Rust",
-      icon: FaRust,
     },
   ],
   backend: [
     {
-      name: "Node",
+      name: 'Node',
       icon: SiNodedotjs,
     },
     {
-      name: "Express.js",
+      name: 'Express.js',
       icon: SiExpress,
+    },
+    {
+      name: 'Nest.js',
+      icon: SiNestjs,
     },
   ],
   frontend: [
     {
-      name: "React",
+      name: 'React',
       icon: SiReact,
     },
     {
-      name: "NextJs",
+      name: 'NextJs',
       icon: TbBrandNextjs,
     },
     {
-      name: "Redux",
+      name: 'Redux',
       icon: SiRedux,
     },
     {
-      name: "D3.Js",
+      name: 'D3.Js',
       icon: SiD3Dotjs,
+    },
+    {
+      name: 'Jest',
+      icon: SiJest,
     },
   ],
   database: [
     {
-      name: "MySQL",
+      name: 'MySQL',
       icon: SiMysql,
     },
     {
-      name: "MongoDb",
+      name: 'MongoDb',
       icon: SiMongodb,
     },
     {
-      name: "PostgreSQL",
+      name: 'PostgreSQL',
       icon: SiPostgresql,
     },
   ],
   cicd: [
     {
-      name: "Docker",
+      name: 'Docker',
       icon: SiDocker,
     },
   ],
-  "ui frameworks": [
-    { name: "Tailwind Css", icon: SiTailwindcss },
+  'ui frameworks': [
+    { name: 'Tailwind Css', icon: SiTailwindcss },
 
     {
-      name: "ChakraUI",
+      name: 'ChakraUI',
       icon: SiChakraui,
     },
-  ],
-  "productivity boost": [
     {
-      name: "VSCode",
-      icon: SiVisualstudiocode,
+      name: 'Shadcn UI',
+      icon: SiShadcnui,
+    },
+  ],
+  tools: [
+    {
+      name: 'Git',
+      icon: SiGit,
     },
     {
-      name: "Git",
-      icon: SiGit,
+      name: 'Jira',
+      icon: SiJira,
+    },
+    {
+      name: 'Webpack',
+      icon: SiWebpack,
+    },
+    {
+      name: 'VSCode',
+      icon: BiLogoVisualStudio,
     },
   ],
 };

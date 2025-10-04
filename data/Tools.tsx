@@ -6,45 +6,56 @@ import {
   FaNodeJs,
   FaReact,
   FaRust,
-} from "react-icons/fa";
+} from 'react-icons/fa';
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiExpress,
+  SiPostgresql,
+  SiMongodb,
+} from 'react-icons/si';
 
 export const tools = [
   {
-    name: "Javascript",
-    description: "These days you can't build an amazing product without JS.",
-    icon: <FaJs fontSize="20px" />,
-    url: "https://www.javascript.info",
-  },
-  {
-    name: "Rust",
+    name: 'React.js',
     description:
-      "Rust is a Fast, safe, concurrent systems programming language",
-    icon: <FaRust fontSize="20px" />,
-    url: "https://www.rust-lang.org/",
-  },
-  {
-    name: "Node.js",
-    description: "Chrome's V8 JavaScript engine for server-side javascript.",
-    icon: <FaNodeJs fontSize="20px" />,
-    url: "https://www.nodejs.org",
-  },
-  {
-    name: "React.js",
-    description: "A JavaScript library for building user interfaces.",
+      'A powerful library for building fast, modular, and interactive user interfaces.',
     icon: <FaReact fontSize="20px" />,
-    url: "https://www.reactjs.org",
+    url: 'https://react.dev/',
   },
   {
-    name: "SQL & MongoDb",
-    description: "Both database are great, and they have their use cases.",
-    icon: <FaDatabase fontSize="20px" />,
-    url: "https://www.mongodb.com/",
-  },
-  {
-    name: "GIT & Github",
+    name: 'Next.js',
     description:
-      "A version control system that gives you a lot of flexibility.",
-    icon: <FaGitAlt fontSize="20px" />,
-    url: "https://medium.com/swlh/things-about-git-and-github-you-need-to-know-as-developer-907baa0bed79",
+      'A production-grade React framework for SSR, SSG, APIs, and full-stack web apps.',
+    icon: <SiNextdotjs fontSize="20px" />,
+    url: 'https://nextjs.org/',
+  },
+  {
+    name: 'TypeScript',
+    description:
+      'A statically typed JavaScript superset that ensures scalability and maintainable codebases.',
+    icon: <SiTypescript fontSize="20px" />,
+    url: 'https://www.typescriptlang.org/',
+  },
+  {
+    name: 'Node.js',
+    description:
+      'A high-performance JavaScript runtime for building fast and scalable backend services.',
+    icon: <FaNodeJs fontSize="20px" />,
+    url: 'https://nodejs.org/',
+  },
+  {
+    name: 'Express.js',
+    description:
+      'A lightweight Node.js framework for creating efficient REST APIs and backend microservices.',
+    icon: <SiExpress fontSize="20px" />,
+    url: 'https://expressjs.com/',
+  },
+  {
+    name: 'MongoDB',
+    description:
+      'A NoSQL database designed for flexible, scalable, and high-performance data storage.',
+    icon: <SiMongodb fontSize="20px" />,
+    url: 'https://www.mongodb.com/',
   },
 ];

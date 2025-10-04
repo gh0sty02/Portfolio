@@ -9,23 +9,23 @@ import {
   LightMode,
   SlideFade,
   Tag,
-} from "@chakra-ui/react";
-import React, { useState } from "react";
-import Paragraph from "components/utils/Paragraph";
-import Head from "next/head";
+} from '@chakra-ui/react';
+import React, { useState } from 'react';
+import Paragraph from 'components/utils/Paragraph';
+import Head from 'next/head';
 
 const coolStuff = [
-  "React",
-  "Javascript",
-  "Science",
-  "Illustration",
-  "AI",
-  "Space",
-  "Video Games",
-  "Movies",
-  "Sports",
-  "Books",
-  "Tea",
+  'React',
+  'Javascript',
+  'Science',
+  'Illustration',
+  'AI',
+  'Space',
+  'Video Games',
+  'Movies',
+  'Sports',
+  'Books',
+  'Tea',
 ];
 
 const AboutScreen = () => {
@@ -52,27 +52,23 @@ const AboutScreen = () => {
             <Box>
               <Heading
                 as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+                fontSize={{ base: '28px', md: '32px', lg: '36px' }}
                 mb={4}
                 textTransform="uppercase"
               >
                 About Me
               </Heading>
               <Collapse in={show} startingHeight={100}>
-                <Paragraph props={{ fontSize: "xl", lineHeight: "1.6" }}>
-                  Hi! I'm Pranay and I am Full Stack Developer based in Mumbai,
-                  India. I build fast and beautiful websites with modern
-                  technology. I love challenges and complex problems that I can
-                  work on; also I enjoy spending my time learning about new
-                  things. Recently I've found myself studying UI/UX too.
-                  <br /> I had this weird curiosity for computers and their
-                  technologies since I was a child, so here I am, Learning,
-                  Exploring, and Building Projects around the domain I love!
-                  <br /> I have recently completed my Bachelor's Degree in
-                  Computer Science and am excited to embark on a new chapter of
-                  my career. Outside of programming, I enjoy playing video
-                  games, reading books especially those about stoicism,
-                  traveling, and much more.
+                <Paragraph props={{ fontSize: 'xl', lineHeight: '1.6' }}>
+                  I’m a Software Engineer passionate about building scalable,
+                  high-performance web applications. I specialize in React,
+                  Next.js, and Node.js, combining clean architecture with
+                  practical problem-solving to deliver robust, production-ready
+                  solutions. I enjoy optimizing performance, simplifying complex
+                  UIs, and creating experiences that make a real impact. Outside
+                  of coding, I’m an avid gym-goer, love playing guitar, video
+                  games, football, and cricket, and I never miss a chance to
+                  spend time petting my cat.
                 </Paragraph>
               </Collapse>
               <LightMode>
@@ -83,7 +79,7 @@ const AboutScreen = () => {
                   colorScheme="green"
                   bg="green.500"
                 >
-                  Show {show ? "Less" : "More"}
+                  Show {show ? 'Less' : 'More'}
                 </Button>
               </LightMode>
             </Box>
@@ -92,12 +88,12 @@ const AboutScreen = () => {
           <SlideFade in={true} offsetY={80} delay={0.2}>
             <Heading
               as="h1"
-              fontSize={{ base: "24px", md: "30px", lg: "36px" }}
+              fontSize={{ base: '24px', md: '30px', lg: '36px' }}
               mb={3}
             >
               Cool Stuff
             </Heading>
-            <Paragraph props={{ fontSize: "xl", lineHeight: "1.6" }}>
+            <Paragraph props={{ fontSize: 'xl', lineHeight: '1.6' }}>
               {coolStuff.map((item) => (
                 <Tag
                   size="lg"

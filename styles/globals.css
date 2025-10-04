@@ -24,7 +24,7 @@ body::-webkit-scrollbar-thumb {
 /* Inner cricle  */
 
 .logo::before {
-  content: "";
+  content: '';
   display: inline-block;
   top: 50%;
   left: 50%;
@@ -48,7 +48,7 @@ body::-webkit-scrollbar-thumb {
 /* Outter cricle  */
 
 .logo::after {
-  content: "";
+  content: '';
   display: inline-block;
   top: 50%;
   left: 50%;
