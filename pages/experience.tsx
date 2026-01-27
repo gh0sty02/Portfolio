@@ -45,10 +45,10 @@ const ExperienceScreen = () => {
                 mb={4}
                 textTransform="uppercase"
               >
-                Places i've worked
+                Places i&apos;ve worked
               </Heading>
               <Paragraph props={{ fontSize: 'xl', lineHeight: '1.6' }}>
-                Here are Some places where I've worked!
+                Here are Some places where I&apos;ve worked!
               </Paragraph>
             </div>
           </motion.div>

@@ -13,7 +13,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   // Apply theme on mount to prevent flash
   useEffect(() => {
     document.documentElement.classList.add(resolvedTheme);
-  }, []);
+  }, [resolvedTheme]);
 
   return <>{children}</>;
 }
