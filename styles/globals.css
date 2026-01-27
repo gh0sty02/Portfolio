@@ -1,3 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors - matching Chakra's gray.100 background */
+    --background: 240 17% 98%; /* #f7fafc - Chakra gray.100 */
+    --foreground: 222 47% 11%; /* Dark text */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 142 69% 45%; /* #38a169 - Chakra green.500 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%; /* Light gray */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 142 69% 45%; /* Same as primary */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 69% 45%; /* Primary color for focus rings */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode Colors - matching Chakra's #121212 background */
+    --background: 0 0% 7%; /* #121212 - Chakra dark mode */
+    --foreground: 0 0% 95%; /* Light text */
+    --card: 0 0% 10%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 142 69% 45%; /* Same green in dark mode */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 142 69% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 142 69% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Preserved Custom Styles from Original */
+
+/* Custom Scrollbar */
 body::-webkit-scrollbar {
   width: 0.4rem;
 }
@@ -11,6 +76,7 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
+/* Logo Hover Effects */
 .logo {
   position: relative;
   cursor: pointer;
@@ -21,8 +87,7 @@ body::-webkit-scrollbar-thumb {
   transform: scale(0.9);
 }
 
-/* Inner cricle  */
-
+/* Inner circle */
 .logo::before {
   content: '';
   display: inline-block;
@@ -45,8 +110,7 @@ body::-webkit-scrollbar-thumb {
   transition: all 250ms;
 }
 
-/* Outter cricle  */
-
+/* Outer circle */
 .logo::after {
   content: '';
   display: inline-block;
