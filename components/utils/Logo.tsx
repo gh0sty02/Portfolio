@@ -1,12 +1,14 @@
-import { Box, useColorMode } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { FaGhost } from "react-icons/fa";
+import { useTheme } from '@/hooks/use-theme';
+import { useRouter } from 'next/router';
+import { FaGhost } from 'react-icons/fa';
 
 const Logo = () => {
-  const { colorMode } = useColorMode();
+  const { resolvedTheme } = useTheme();
   const router = useRouter();
+  const fillColor = resolvedTheme === 'light' ? 'black' : '#38a169';
+
   return (
-    <Box className="logo" onClick={() => router.push("/")}>
+    <div className="logo" onClick={() => router.push('/')}>
       {/* <svg
         version="1.1"
         id="Layer_1"
@@ -68,7 +70,7 @@ const Logo = () => {
         data-name="New Layer"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 719.89 564.61"
-        fill={`${colorMode === "light" ? "black" : "#38a169"}`}
+        fill={fillColor}
         width="30"
         height="30"
       >
@@ -85,7 +87,7 @@ const Logo = () => {
           fillRule="evenodd"
         />
       </svg>
-    </Box>
+    </div>
   );
 };
 
