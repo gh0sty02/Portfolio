@@ -1,32 +1,45 @@
-import { AspectRatio, Image } from "@chakra-ui/react";
-import { IProjects } from "data/Projects";
-import { motion } from "framer-motion";
-import React, { FC } from "react";
-import { variants } from "./varients";
+'use client';
+
+import { IProjects } from 'data/Projects';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import React, { FC } from 'react';
+import { variants } from './varients';
+import { cn } from '@/lib/utils';
 
 const CoverImage: FC<{ proj: IProjects }> = ({ proj }) => {
-  const MotionImage = motion(Image);
+  const MotionDiv = motion.div;
+
   return (
-    <AspectRatio
-      gridRowStart={{ base: "1", md: "1", lg: "1" }}
-      gridColumnStart={{
-        md: `${proj.isLeft ? "1" : "2"}`,
-        lg: `${proj.isLeft ? "1" : "2"}`,
+    <div
+      className={cn(
+        'relative w-full overflow-hidden row-start-1 aspect-video',
+        proj.isLeft
+          ? 'md:col-start-1 lg:col-start-1'
+          : 'md:col-start-2 lg:col-start-2'
+      )}
+      style={{
+        borderRadius: proj.isLeft ? '.5rem 0 0 .5rem' : '0 0.5rem 0.5rem 0',
       }}
-      ratio={16 / 9}
     >
-      <MotionImage
-        objectPosition="top"
-        borderRadius={proj.isLeft ? ".5rem 0 0 .5rem" : "0 0.5rem 0.5rem 0"}
-        objectFit="cover"
-        src={proj.image}
-        alt={proj.name}
-        my="auto"
-        opacity={0.75}
+      <MotionDiv
+        className="relative w-full h-full"
+        initial={variants.normal}
         whileHover={variants.hover}
         whileTap={variants.tap}
-      />
-    </AspectRatio>
+      >
+        <Image
+          src={proj.image}
+          alt={proj.name}
+          fill
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'top',
+            opacity: 0.75,
+          }}
+        />
+      </MotionDiv>
+    </div>
   );
 };
 

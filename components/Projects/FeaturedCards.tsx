@@ -1,18 +1,13 @@
-import {
-  Container,
-  Stack,
-  Divider,
-  Button,
-  useColorModeValue,
-  Skeleton,
-  Box,
-  SimpleGrid,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import { DURATIONS, easing } from "config/animations";
-import { motion } from "framer-motion";
-import styles from "./styles.module.css";
+'use client';
+
+import { Container } from '@/components/ui/container';
+import { Divider } from '@/components/ui/divider';
+import { useTheme } from '@/hooks/use-theme';
+import { DURATIONS, easing } from 'config/animations';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import styles from './styles.module.css';
+import { cn } from '@/lib/utils';
 
 export type FeaturedCardProps = {
   height: string;
@@ -34,7 +29,7 @@ const variants = {
     opacity: 1,
     transition: {
       duration: DURATIONS.Fast,
-      ease: "backOut",
+      ease: 'backOut',
     },
   },
   tap: {
@@ -47,7 +42,7 @@ const variants = {
   },
 };
 
-const MotionImage = motion(Image);
+const MotionDiv = motion.div;
 
 const ProjectDescription = ({
   idx,
@@ -62,61 +57,41 @@ const ProjectDescription = ({
   ctaUrl: string;
   isLeft: boolean;
 }) => (
-  <Container
-    paddingX={5}
-    paddingY={1}
-    display="flex"
-    alignItems="center"
-    justifyContent="space-around"
-    flexDirection="column"
-  >
-    <Stack spacing={1} width="100%">
-      <Text
-        fontSize={{ base: "md", md: "large", "2xl": "xx-large" }}
-        fontWeight="bold"
-        letterSpacing={2}
-        width="90%"
-        alignSelf={isLeft ? "flex-end" : "flex-start"}
-        textTransform="uppercase"
-        as="span"
+  <div className="px-5 py-1 flex items-center justify-around flex-col">
+    <div className="flex flex-col gap-1 w-full">
+      <span
+        className={cn(
+          'text-base md:text-lg 2xl:text-3xl font-bold tracking-wider w-[90%] uppercase',
+          isLeft ? 'self-end' : 'self-start'
+        )}
       >
-        <Text variant="accentAlternative" fontSize="md" as="span">
+        <span className="text-green-600 dark:text-green-400 text-base">
           #0{idx}
-          {"  "}
-        </Text>
+          {'  '}
+        </span>
         {title}
-      </Text>
+      </span>
       <Divider
-        borderColor="#A6A6A6"
-        width="90%"
-        marginLeft={0}
-        alignSelf={isLeft ? "flex-end" : "flex-start"}
+        className={cn('border-[#A6A6A6] w-[90%] ml-0', isLeft ? 'self-end' : 'self-start')}
       />
-    </Stack>
-    <Text
-      fontSize="smaller"
-      variant="accentAlternative"
-      width="90%"
-      alignSelf={isLeft ? "flex-end" : "flex-start"}
-      wordBreak="break-word"
-      paddingY={{ base: 3, md: 0 }}
+    </div>
+    <p
+      className={cn(
+        'text-sm text-green-600 dark:text-green-400 w-[90%] break-words py-3 md:py-0',
+        isLeft ? 'self-end' : 'self-start'
+      )}
     >
       {description}
-    </Text>
-    <Button
-      variant="outlineAlternative"
-      fontWeight="light"
-      fontSize={{ base: "sm", "2xl": "md" }}
-      size="sm"
-      as="a"
+    </p>
+    <a
       href={ctaUrl}
       rel="noreferrer"
       target="_blank"
-      marginY={{ base: 3, md: 0 }}
+      className="border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-colors font-light text-sm 2xl:text-base px-4 py-2 rounded my-3 md:my-0"
     >
       View Project
-    </Button>
-  </Container>
+    </a>
+  </div>
 );
 
 const FeaturedCard = ({
@@ -129,39 +104,44 @@ const FeaturedCard = ({
   ctaUrl,
   isMobile,
 }: FeaturedCardProps) => {
+  const { theme } = useTheme();
   const isLeftImage = isMobile ? false : idx % 2 === 0;
-  const bg = useColorModeValue("blackAlpha.50", "whiteAlpha.200");
+  const bg =
+    theme === 'light'
+      ? 'bg-black/5'
+      : 'bg-white/20';
+
   const CoverImage = () => (
-    <MotionImage
-      height={height}
-      width="100%"
-      src={src}
-      alt={title}
-      objectFit="cover"
-      objectPosition={objectPosition}
-      loading="lazy"
-      opacity={0.75}
+    <MotionDiv
+      className="relative w-full overflow-hidden"
+      style={{ height }}
+      initial={variants.normal}
       whileHover={variants.hover}
       whileTap={variants.tap}
-      fallback={<Skeleton height={height} width="100%" />}
-    />
+    >
+      <Image
+        src={src}
+        alt={title}
+        fill
+        style={{
+          objectFit: 'cover',
+          objectPosition: objectPosition || 'center',
+          opacity: 0.75,
+        }}
+        loading="lazy"
+      />
+    </MotionDiv>
   );
 
   return (
-    <Box
-      height="auto"
-      bg={bg}
-      borderRadius="1em"
-      className={styles.featureCard}
-      borderColor={bg}
-      borderWidth="1px"
+    <div
+      className={cn(
+        'h-auto rounded-2xl border',
+        bg,
+        styles.featureCard
+      )}
     >
-      <SimpleGrid
-        columns={{ base: 1, md: 2 }}
-        spacing={{ base: 3, md: 0 }}
-        display={{ base: "flex", md: "grid" }}
-        flexDirection={{ base: "column-reverse", md: "initial" }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-0 flex md:grid flex-col-reverse md:flex-row">
         {isLeftImage && <CoverImage />}
         <ProjectDescription
           idx={idx}
@@ -171,8 +151,8 @@ const FeaturedCard = ({
           isLeft={isLeftImage}
         />
         {!isLeftImage && <CoverImage />}
-      </SimpleGrid>
-    </Box>
+      </div>
+    </div>
   );
 };
 
