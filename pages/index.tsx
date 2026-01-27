@@ -27,7 +27,9 @@ const Home: NextPage = () => {
       <main>
         <Container maxW="container.lg" mt={['5', '10']}>
           <Profile />
-          <Divider my={10} />
+          <div className="my-16">
+            <Divider />
+          </div>
           <Stack />
         </Container>
       </main>
