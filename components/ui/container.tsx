@@ -8,11 +8,11 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
     | 'container.lg'
     | 'container.xl'
     | 'container.2xl';
-  mt?: number | number[];
-  mb?: number | number[];
-  my?: number | number[];
-  mx?: number | number[];
-  p?: number | number[];
+  mt?: string | number | (string | number)[];
+  mb?: string | number | (string | number)[];
+  my?: string | number | (string | number)[];
+  mx?: string | number | (string | number)[];
+  p?: string | number | (string | number)[];
 }
 
 const maxWidthMap = {
@@ -32,7 +32,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
 
     // Handle responsive margin/padding
     const getResponsiveClass = (
-      prop: number | number[] | undefined,
+      prop: string | number | (string | number)[] | undefined,
       prefix: string,
     ) => {
       if (Array.isArray(prop)) {

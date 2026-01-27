@@ -2,14 +2,14 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 interface DividerProps extends React.HTMLAttributes<HTMLHRElement> {
-  my?: number | number[];
+  my?: string | number | (string | number)[];
   orientation?: 'horizontal' | 'vertical';
 }
 
 const Divider = React.forwardRef<HTMLHRElement, DividerProps>(
   ({ className, my = 0, orientation = 'horizontal', ...props }, ref) => {
     const getResponsiveClass = (
-      prop: number | number[] | undefined,
+      prop: string | number | (string | number)[] | undefined,
       prefix: string,
     ) => {
       if (Array.isArray(prop)) {
