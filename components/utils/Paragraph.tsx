@@ -1,16 +1,23 @@
-import { Text, useColorModeValue } from "@chakra-ui/react";
-import { FC, ReactNode } from "react";
+import { useTheme } from '@/hooks/use-theme';
+import { FC, ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 const Paragraph: FC<{ children: ReactNode; props?: any }> = ({
   children,
   props,
 }) => {
-  const textColor = useColorModeValue("gray.600", "gray.400");
+  const { resolvedTheme } = useTheme();
+  const textColor =
+    resolvedTheme === 'light' ? 'text-gray-600' : 'text-gray-400';
+
+  // Handle fontSize prop
+  const fontSize = props?.fontSize ? `text-${props.fontSize}` : '';
+  const lineHeight = props?.lineHeight || '';
 
   return (
-    <Text color={textColor} {...props}>
+    <div className={cn(textColor, fontSize)} style={{ lineHeight }} {...props}>
       {children}
-    </Text>
+    </div>
   );
 };
 
