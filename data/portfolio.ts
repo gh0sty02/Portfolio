@@ -145,18 +145,15 @@ export const featuredProjects: FeaturedProject[] = [
 export const infoPanels: InfoPanel[] = [
   {
     title: 'About',
-    body:
-      'I work across product UI, backend contracts, and automation. Recent work includes self-serve validation systems, GraphQL migrations, web performance improvements, and AI-assisted development workflows.',
+    body: 'I work across product UI, backend contracts, and automation. Recent work includes self-serve validation systems, GraphQL migrations, web performance improvements, and AI-assisted development workflows.',
   },
   {
     title: 'Delivery',
-    body:
-      'I have led small engineering teams, preserved backward compatibility in mature codebases, shipped under SLA pressure, and built test practices around Jest, React Testing Library, Playwright, and TDD.',
+    body: 'I have led small engineering teams, preserved backward compatibility in mature codebases, shipped under SLA pressure, and built test practices around Jest, React Testing Library, Playwright, and TDD.',
   },
   {
     title: 'Principles',
-    body:
-      'Keep interfaces clear, make data contracts explicit, test the risky paths, and leave systems easier to operate than they were before.',
+    body: 'Keep interfaces clear, make data contracts explicit, test the risky paths, and leave systems easier to operate than they were before.',
   },
 ];
 
@@ -213,7 +210,6 @@ export const skillCategories: SkillCategory[] = [
     all: [
       'React.js',
       'Next.js',
-      'Vue.js',
       'D3.js',
       'Tailwind CSS',
       'Redux Toolkit',
@@ -247,7 +243,14 @@ export const skillCategories: SkillCategory[] = [
     title: 'Testing',
     icon: SiJest,
     featured: ['Jest', 'React Testing Library', 'Playwright', 'TDD'],
-    all: ['Jest', 'React Testing Library', 'Playwright', 'TDD', 'Peer reviews', 'Regression testing'],
+    all: [
+      'Jest',
+      'React Testing Library',
+      'Playwright',
+      'TDD',
+      'Peer reviews',
+      'Regression testing',
+    ],
   },
   {
     title: 'Platform & Tooling',
