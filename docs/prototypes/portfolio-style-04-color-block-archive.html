@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranay Yadav | Color Block Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #111111;
+        --cream: #fff7df;
+        --blue: #265cff;
+        --red: #ff4d35;
+        --green: #c8ff3d;
+        --pink: #ffb6d2;
+        --line: #111111;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: Manrope, system-ui, sans-serif;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      :focus-visible { outline: 4px solid var(--blue); outline-offset: 4px; }
+
+      .page {
+        width: min(1280px, calc(100% - 28px));
+        margin: 14px auto;
+        border: 2px solid var(--line);
+        background: #fffdf4;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px;
+        border-bottom: 2px solid var(--line);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .nav nav { display: flex; flex-wrap: wrap; gap: 14px; }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        min-height: 620px;
+        border-bottom: 2px solid var(--line);
+      }
+      .hero-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(22px, 5vw, 56px);
+        border-right: 2px solid var(--line);
+      }
+      .hero h1 {
+        margin: 0;
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: clamp(4rem, 13vw, 13rem);
+        line-height: 0.82;
+        letter-spacing: 0;
+      }
+      .hero p {
+        max-width: 720px;
+        margin: 24px 0 0;
+        font-size: clamp(1.05rem, 1.6vw, 1.45rem);
+        font-weight: 700;
+        line-height: 1.45;
+      }
+      .hero-side {
+        display: grid;
+        grid-template-rows: 1fr auto;
+      }
+      .status {
+        display: grid;
+        place-items: center;
+        min-height: 360px;
+        padding: 28px;
+        background: var(--green);
+        border-bottom: 2px solid var(--line);
+        text-align: center;
+      }
+      .status strong {
+        display: block;
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: clamp(3rem, 8vw, 8rem);
+        line-height: 0.82;
+      }
+      .status span { display: block; margin-top: 16px; font-weight: 800; }
+      .quick-links {
+        display: grid;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .quick-links a {
+        display: flex;
+        justify-content: space-between;
+        padding: 18px;
+        border-top: 2px solid var(--line);
+      }
+
+      .strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-bottom: 2px solid var(--line);
+      }
+      .strip div {
+        min-height: 110px;
+        padding: 16px;
+        border-right: 2px solid var(--line);
+        font-weight: 800;
+      }
+      .strip div:nth-child(1) { background: var(--blue); color: white; }
+      .strip div:nth-child(2) { background: var(--pink); }
+      .strip div:nth-child(3) { background: var(--red); color: white; }
+      .strip div:nth-child(4) { background: #fffdf4; border-right: 0; }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        padding: 24px;
+        border-bottom: 2px solid var(--line);
+      }
+      .kicker {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      h2 {
+        margin: 0;
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: clamp(2.6rem, 6vw, 7rem);
+        line-height: 0.9;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+      }
+      .project {
+        min-height: 380px;
+        grid-column: span 3;
+        padding: 22px;
+        border-right: 2px solid var(--line);
+        border-bottom: 2px solid var(--line);
+        background: #fffdf4;
+      }
+      .project:nth-child(3n + 1) { background: #ffffff; }
+      .project:nth-child(3n + 2) { background: #f5f0ff; }
+      .project h3 {
+        margin: 0;
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: clamp(2.4rem, 5.5vw, 6rem);
+        line-height: 0.86;
+      }
+      .project p {
+        max-width: 560px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .tag {
+        padding: 7px 10px;
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        background: var(--green);
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .shot {
+        display: grid;
+        place-items: center;
+        height: 170px;
+        margin-top: 22px;
+        overflow: hidden;
+        border: 2px solid var(--line);
+        background: var(--cream);
+        font-weight: 900;
+      }
+      .shot img { width: 100%; height: 100%; object-fit: cover; }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .info {
+        min-height: 260px;
+        padding: 22px;
+        border-right: 2px solid var(--line);
+        border-bottom: 2px solid var(--line);
+        font-weight: 700;
+        line-height: 1.55;
+      }
+      .info h3 {
+        margin: 0 0 18px;
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: 36px;
+        line-height: 0.9;
+      }
+
+      @media (max-width: 900px) {
+        .hero, .section-head, .strip, .info-grid { grid-template-columns: 1fr; }
+        .hero-main { border-right: 0; border-bottom: 2px solid var(--line); }
+        .project { grid-column: span 6; border-right: 0; }
+        .strip div, .info { border-right: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="nav">
+          <a href="#">Pranay Yadav</a>
+          <nav>
+            <a href="#work">Work</a>
+            <a href="#info">Info</a>
+            <a href="#writing">Writing</a>
+            <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume</a>
+          </nav>
+        </div>
+        <section class="hero">
+          <div class="hero-main">
+            <h1>Pranay<br />Yadav</h1>
+            <p>Developer portfolio as a loud personal archive: strong colors, work-first structure, no glossy startup pitch.</p>
+          </div>
+          <aside class="hero-side">
+            <div class="status">
+              <div>
+                <strong>5</strong>
+                <span>selected projects</span>
+              </div>
+            </div>
+            <div class="quick-links">
+              <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode <span>↗</span></a>
+              <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+            </div>
+          </aside>
+        </section>
+      </header>
+
+      <div class="strip">
+        <div>React / Next.js / TypeScript</div>
+        <div>Interfaces with personality</div>
+        <div>APIs and product systems</div>
+        <div>Light, loud, portfolio-first</div>
+      </div>
+
+      <main>
+        <section id="work">
+          <div class="section-head">
+            <p class="kicker">01 Work</p>
+            <h2>Project posters</h2>
+          </div>
+          <div class="project-grid">
+            <article class="project">
+              <h3>Devkit</h3>
+              <p>Developer tooling project. Add workflow, constraints, and outcome later.</p>
+              <div class="tags"><span class="tag">Tooling</span><span class="tag">DX</span></div>
+              <div class="shot">Screenshot pending</div>
+            </article>
+            <article class="project">
+              <h3>Synaptics</h3>
+              <p>Systems/AI project. Best for diagrams and implementation details.</p>
+              <div class="tags"><span class="tag">Systems</span><span class="tag">AI</span></div>
+              <div class="shot">Visual pending</div>
+            </article>
+            <article class="project">
+              <h3>ConverseX</h3>
+              <p>Realtime communication and interaction design story.</p>
+              <div class="tags"><span class="tag">Realtime</span><span class="tag">UX</span></div>
+              <div class="shot"><img src="/public/conversex.png" alt="ConverseX preview" /></div>
+            </article>
+            <article class="project">
+              <h3>Flowify</h3>
+              <p>Workflow clarity, dashboard structure, and product behavior.</p>
+              <div class="tags"><span class="tag">Workflow</span><span class="tag">Next.js</span></div>
+              <div class="shot"><img src="/public/flowify.png" alt="Flowify preview" /></div>
+            </article>
+            <article class="project">
+              <h3>Stonkify</h3>
+              <p>Finance/data UI with density, charts, and information hierarchy.</p>
+              <div class="tags"><span class="tag">Finance</span><span class="tag">Data</span></div>
+              <div class="shot"><img src="/public/stonkify.jpg" alt="Stonkify preview" /></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="info">
+          <div class="section-head">
+            <p class="kicker">02 Info</p>
+            <h2>About, stack, notes</h2>
+          </div>
+          <div class="info-grid">
+            <article class="info"><h3>About</h3>I like playful surfaces when the system beneath them is clear and dependable.</article>
+            <article class="info"><h3>Stack</h3>React, Next.js, TypeScript, Tailwind, APIs, backend services, performance, accessibility.</article>
+            <article class="info" id="writing"><h3>Writing</h3><a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode</a> and <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn</a>.</article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

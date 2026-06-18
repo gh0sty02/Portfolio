@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Prototypes | Pranay Yadav</title>
+    <style>
+      :root {
+        --bg: #101010;
+        --panel: #f8f2e5;
+        --ink: #151515;
+        --muted: #6f675b;
+        --lime: #d7ff62;
+        --cyan: #85e6ff;
+        --orange: #ff6f3c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--panel);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0;
+      }
+
+      header {
+        margin-bottom: 34px;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(3rem, 9vw, 7rem);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+      }
+
+      .intro {
+        max-width: 680px;
+        color: rgba(248, 242, 229, 0.72);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 22px;
+        border-radius: 26px;
+        background: var(--panel);
+        color: var(--ink);
+        transition: transform 180ms ease, background 180ms ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        background: #fffaf0;
+      }
+
+      .card.recommended {
+        background: var(--lime);
+      }
+
+      .card.experimental {
+        background: var(--cyan);
+      }
+
+      .card.playful {
+        background: var(--orange);
+      }
+
+      .eyebrow {
+        color: rgba(21, 21, 21, 0.68);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 16px 0 0;
+        font-size: clamp(2rem, 4vw, 3.8rem);
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+      }
+
+      p {
+        color: rgba(21, 21, 21, 0.68);
+        line-height: 1.5;
+      }
+
+      .all {
+        margin-top: 38px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(248, 242, 229, 0.18);
+      }
+
+      .all h2 {
+        color: var(--panel);
+        font-size: 1.4rem;
+        letter-spacing: 0;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .links a {
+        padding: 10px 12px;
+        border: 1px solid rgba(248, 242, 229, 0.24);
+        border-radius: 999px;
+        color: rgba(248, 242, 229, 0.78);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .links a:hover {
+        color: var(--panel);
+        border-color: var(--panel);
+      }
+
+      @media (max-width: 860px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <h1>Portfolio prototype directions.</h1>
+        <p class="intro">
+          Share this page to compare the strongest visual directions. Style 06
+          is the current baseline; styles 09-11 explore more creative,
+          personal, interactive-feeling directions.
+        </p>
+      </header>
+
+      <section class="grid" aria-label="Recommended prototypes">
+        <a class="card recommended" href="/portfolio-style-06-poster-wall.html">
+          <div>
+            <span class="eyebrow">Current baseline</span>
+            <h2>06 Poster Wall</h2>
+          </div>
+          <p>Dark, expressive, image-led portfolio. This is the strongest accepted direction so far.</p>
+        </a>
+
+        <a class="card experimental" href="/portfolio-style-09-3d-workbench.html">
+          <div>
+            <span class="eyebrow">Most creative</span>
+            <h2>09 3D Workbench</h2>
+          </div>
+          <p>Playful CSS 3D scene inspired by personal creative portfolios.</p>
+        </a>
+
+        <a class="card" href="/portfolio-style-10-generative-lab.html">
+          <div>
+            <span class="eyebrow">Interactive canvas</span>
+            <h2>10 Generative Lab</h2>
+          </div>
+          <p>Animated background with a darker lab-wall mood.</p>
+        </a>
+
+        <a class="card playful" href="/portfolio-style-11-inventory.html">
+          <div>
+            <span class="eyebrow">Most playful</span>
+            <h2>11 Inventory</h2>
+          </div>
+          <p>Game-like profile and project inventory concept.</p>
+        </a>
+      </section>
+
+      <section class="all">
+        <h2>All prototypes</h2>
+        <div class="links">
+          <a href="/portfolio-redesign-sample.html">Baseline sample</a>
+          <a href="/portfolio-style-01-index-archive.html">01 Index archive</a>
+          <a href="/portfolio-style-02-notebook.html">02 Notebook</a>
+          <a href="/portfolio-style-03-visual-dossier.html">03 Visual dossier</a>
+          <a href="/portfolio-style-04-color-block-archive.html">04 Color block</a>
+          <a href="/portfolio-style-05-swiss-editorial.html">05 Swiss editorial</a>
+          <a href="/portfolio-style-06-poster-wall.html">06 Poster wall</a>
+          <a href="/portfolio-style-07-technical-ledger.html">07 Technical ledger</a>
+          <a href="/portfolio-style-08-image-index.html">08 Image index</a>
+          <a href="/portfolio-style-09-3d-workbench.html">09 3D workbench</a>
+          <a href="/portfolio-style-10-generative-lab.html">10 Generative lab</a>
+          <a href="/portfolio-style-11-inventory.html">11 Inventory</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

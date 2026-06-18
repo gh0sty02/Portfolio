@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranay Yadav | Swiss Editorial Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --paper: #f3f0e8;
+        --ink: #141414;
+        --muted: #5d5a54;
+        --line: #bdb7aa;
+        --wine: #842d45;
+        --sage: #b8c7a3;
+        --blue: #1839d8;
+        --max: 1180px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      :focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+      .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+      .nav {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 28px;
+        padding: 28px 0 18px;
+        border-bottom: 1px solid var(--ink);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      .nav nav { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); }
+      .nav a:hover { color: var(--wine); }
+
+      .hero { padding: clamp(56px, 10vw, 130px) 0 clamp(44px, 7vw, 90px); }
+      .hero-grid { display: grid; grid-template-columns: 1fr 330px; gap: 60px; align-items: end; }
+      .index { color: var(--wine); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+      h1, h2, h3 { margin: 0; font-family: Archivo, system-ui, sans-serif; line-height: 0.96; }
+      h1 { margin-top: 24px; max-width: 920px; font-size: clamp(4.6rem, 13vw, 12.5rem); font-weight: 800; letter-spacing: 0; }
+      .aside {
+        padding-top: 18px;
+        border-top: 1px solid var(--ink);
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      .aside strong { display: block; margin-bottom: 10px; color: var(--ink); font-size: 18px; }
+
+      .marquee {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr 0.8fr;
+        border-top: 1px solid var(--ink);
+        border-bottom: 1px solid var(--ink);
+      }
+      .marquee div { min-height: 122px; padding: 18px; border-right: 1px solid var(--line); color: var(--muted); font-weight: 600; line-height: 1.5; }
+      .marquee b { display: block; margin-bottom: 8px; color: var(--ink); font-family: Archivo, sans-serif; font-size: 26px; }
+      .marquee div:nth-child(2) { background: var(--sage); color: var(--ink); }
+      .marquee div:last-child { border-right: 0; }
+
+      .section { padding: clamp(68px, 10vw, 128px) 0; border-bottom: 1px solid var(--line); }
+      .section-head { display: grid; grid-template-columns: 180px 1fr; gap: 32px; margin-bottom: 42px; }
+      .section h2 { max-width: 860px; font-size: clamp(2.8rem, 6vw, 6.4rem); }
+      .section p.lead { max-width: 720px; margin: 18px 0 0; color: var(--muted); font-size: 18px; line-height: 1.65; }
+
+      .work-table { border-top: 1px solid var(--ink); }
+      .work-row {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr) 260px;
+        gap: 28px;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .work-row h3 { font-size: clamp(2.1rem, 4.2vw, 4.7rem); }
+      .work-row p { max-width: 620px; margin: 10px 0 0; color: var(--muted); line-height: 1.6; }
+      .num { color: var(--wine); font-weight: 800; }
+      .meta { color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.8; text-transform: uppercase; }
+
+      .text-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+      .card { min-height: 260px; padding: 24px; background: var(--paper); }
+      .card:nth-child(2) { background: #fffaf1; }
+      .card h3 { font-size: 32px; }
+      .card p { color: var(--muted); line-height: 1.65; }
+
+      .contact { display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: end; }
+      .contact-links { display: grid; border-top: 1px solid var(--ink); }
+      .contact-links a { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 800; }
+      .contact-links span { color: var(--muted); font-weight: 600; }
+
+      @media (max-width: 860px) {
+        .nav, .hero-grid, .marquee, .section-head, .work-row, .text-cards, .contact { grid-template-columns: 1fr; }
+        .marquee div { border-right: 0; border-bottom: 1px solid var(--line); }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap">
+      <div class="nav">
+        <a href="#">Pranay Yadav / Portfolio</a>
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#info">Info</a>
+          <a href="#writing">Writing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <span class="index">Portfolio / Full-stack engineer</span>
+            <h1>Selected work, precisely edited.</h1>
+          </div>
+          <aside class="aside">
+            <strong>Direction</strong>
+            Mature editorial portfolio. Less playful than the color-block version, more distinctive than the plain archive.
+          </aside>
+        </div>
+      </section>
+    </header>
+
+    <div class="marquee wrap">
+      <div><b>React / Next.js</b>Interface-focused engineering with product awareness.</div>
+      <div><b>Writing</b><a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode</a> and <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn</a>.</div>
+      <div><b>Resume</b><a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Drive source</a>.</div>
+    </div>
+
+    <main>
+      <section id="work" class="section wrap">
+        <div class="section-head">
+          <span class="index">01 / Work</span>
+          <div>
+            <h2>Projects as records, not cards.</h2>
+            <p class="lead">This avoids the product-site feel by making project entries read like editorial records with role, stack, status, and final proof.</p>
+          </div>
+        </div>
+        <div class="work-table">
+          <article class="work-row"><span class="num">01</span><div><h3>Devkit</h3><p>Developer tooling project. Final copy should clarify the workflow and result.</p></div><div class="meta">Tooling<br />Details pending</div></article>
+          <article class="work-row"><span class="num">02</span><div><h3>Synaptics</h3><p>Systems/AI project. Good for technical depth and architecture notes.</p></div><div class="meta">Systems<br />Details pending</div></article>
+          <article class="work-row"><span class="num">03</span><div><h3>ConverseX</h3><p>Communication and realtime UI project.</p></div><div class="meta">Realtime<br />Image available</div></article>
+          <article class="work-row"><span class="num">04</span><div><h3>Flowify</h3><p>Workflow and dashboard project.</p></div><div class="meta">Workflow<br />Image available</div></article>
+          <article class="work-row"><span class="num">05</span><div><h3>Stonkify</h3><p>Finance/data UI project.</p></div><div class="meta">Data UI<br />Image available</div></article>
+        </div>
+      </section>
+
+      <section id="info" class="section wrap">
+        <div class="section-head">
+          <span class="index">02 / Info</span>
+          <h2>About, stack, experience.</h2>
+        </div>
+        <div class="text-cards">
+          <article class="card"><h3>About</h3><p>I care about interfaces with taste and systems that are easy to reason about.</p></article>
+          <article class="card"><h3>Stack</h3><p>React, Next.js, TypeScript, Tailwind, APIs, backend services, accessibility, performance.</p></article>
+          <article class="card"><h3>Experience</h3><p>Use concise outcome-led entries instead of a long resume-style section.</p></article>
+        </div>
+      </section>
+
+      <section id="contact" class="section wrap contact">
+        <h2>Reach out.</h2>
+        <div class="contact-links">
+          <a href="mailto:hello@example.com">Email <span>pending</span></a>
+          <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn <span>profile</span></a>
+          <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode <span>writing</span></a>
+          <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume <span>Drive</span></a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranay Yadav | Portfolio Prototype</title>
+    <meta
+      name="description"
+      content="Portfolio-style redesign prototype for Pranay Yadav."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fbfaf7;
+        --paper: #ffffff;
+        --ink: #111111;
+        --muted: #66645f;
+        --faint: #dedbd2;
+        --line: #d8d5cc;
+        --blue: #2458ff;
+        --green: #d8ff57;
+        --orange: #ff7448;
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+          linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+          var(--bg);
+        background-size: 40px 40px;
+        color: var(--ink);
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(216, 213, 204, 0.84);
+        background: rgba(251, 250, 247, 0.86);
+        backdrop-filter: blur(16px);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 68px;
+      }
+
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+      }
+
+      .mark span:first-child {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid var(--ink);
+        border-radius: 50%;
+        background: var(--green);
+        font-family: "Archivo", sans-serif;
+        font-size: 13px;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .links a {
+        border-bottom: 1px solid transparent;
+      }
+
+      .links a:hover {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .hero {
+        min-height: calc(100vh - 69px);
+        display: grid;
+        align-items: end;
+        padding: clamp(72px, 10vw, 132px) 0 56px;
+      }
+
+      .hero-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: clamp(36px, 8vw, 92px);
+        align-items: end;
+      }
+
+      .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .label::before {
+        width: 10px;
+        height: 10px;
+        content: "";
+        border-radius: 50%;
+        background: var(--orange);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Archivo", system-ui, sans-serif;
+        line-height: 0.98;
+      }
+
+      h1 {
+        max-width: 980px;
+        font-size: clamp(4.2rem, 14vw, 12.8rem);
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        max-width: 720px;
+        margin: 28px 0 0;
+        color: var(--muted);
+        font-size: clamp(1.1rem, 1.5vw, 1.45rem);
+      }
+
+      .side-note {
+        border-top: 1px solid var(--ink);
+        padding-top: 18px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .side-note strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--ink);
+        font-family: "Archivo", sans-serif;
+        font-size: 24px;
+      }
+
+      .hero-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+        margin-top: clamp(42px, 7vw, 84px);
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .hero-bottom a {
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 5px;
+      }
+
+      .section {
+        padding: clamp(76px, 11vw, 136px) 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 32px;
+        margin-bottom: 42px;
+      }
+
+      .kicker {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        max-width: 820px;
+        font-size: clamp(2.5rem, 6vw, 6rem);
+        font-weight: 800;
+      }
+
+      .section-copy {
+        max-width: 680px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .work-list {
+        display: grid;
+        border-top: 1px solid var(--ink);
+      }
+
+      .work-item {
+        display: grid;
+        grid-template-columns: 0.8fr 1fr 180px;
+        gap: 28px;
+        align-items: center;
+        min-height: 178px;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .work-item h3 {
+        font-size: clamp(2.2rem, 5vw, 5.2rem);
+        font-weight: 800;
+      }
+
+      .work-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .work-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .tag {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        padding: 0 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.54);
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .thumb {
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .placeholder {
+        display: grid;
+        height: 100%;
+        place-items: center;
+        padding: 16px;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(216, 255, 87, 0.6), transparent 38%),
+          #f4f1e8;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+        gap: clamp(34px, 7vw, 88px);
+      }
+
+      .about-text {
+        max-width: 760px;
+        font-family: "Archivo", sans-serif;
+        font-size: clamp(1.75rem, 4vw, 4rem);
+        line-height: 1.05;
+      }
+
+      .about-text mark {
+        background: var(--green);
+        color: var(--ink);
+      }
+
+      .note-card {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.62);
+      }
+
+      .note-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 0;
+        border-top: 1px solid var(--ink);
+      }
+
+      .timeline-row {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 32px;
+        padding: 26px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .timeline-row time {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .timeline-row h3 {
+        font-size: clamp(1.6rem, 3vw, 2.7rem);
+      }
+
+      .timeline-row p {
+        max-width: 720px;
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .stack-grid,
+      .writing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .stack-card,
+      .writing-card {
+        min-height: 218px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.68);
+        transition: transform 180ms ease, background 180ms ease;
+      }
+
+      .writing-card:hover {
+        transform: translateY(-3px);
+        background: #ffffff;
+      }
+
+      .stack-card h3,
+      .writing-card h3 {
+        font-size: 1.6rem;
+      }
+
+      .stack-card p,
+      .writing-card p {
+        margin: 14px 0 0;
+        color: var(--muted);
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 44px;
+        align-items: end;
+        padding-bottom: 56px;
+      }
+
+      .contact h2 {
+        max-width: 880px;
+        font-size: clamp(3.2rem, 9vw, 9.4rem);
+      }
+
+      .contact-links {
+        display: grid;
+        gap: 10px;
+        border-top: 1px solid var(--ink);
+        padding-top: 16px;
+      }
+
+      .contact-links a {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        font-weight: 800;
+      }
+
+      .contact-links a span {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .footer {
+        padding: 24px 0 40px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 520ms ease, transform 520ms ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        .links {
+          display: none;
+        }
+
+        .hero-top,
+        .section-head,
+        .work-item,
+        .two-col,
+        .timeline-row,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        .work-item {
+          align-items: start;
+        }
+
+        .thumb {
+          max-width: 320px;
+        }
+
+        .stack-grid,
+        .writing-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .wrap {
+          width: min(var(--max), calc(100% - 28px));
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        h1 {
+          font-size: clamp(3.7rem, 22vw, 6.6rem);
+        }
+
+        .hero-bottom {
+          display: grid;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav-inner wrap">
+        <a class="mark" href="#top" aria-label="Pranay Yadav home">
+          <span>PY</span>
+          <span>Pranay Yadav</span>
+        </a>
+        <div class="links">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#about">About</a>
+          <a href="#writing">Writing</a>
+          <a href="#contact">Contact</a>
+          <a
+            href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resume
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <header class="hero wrap">
+        <div class="hero-top">
+          <div class="reveal">
+            <p class="label">Full-stack engineer / interface-minded builder</p>
+            <h1>Pranay Yadav</h1>
+            <p class="hero-copy">
+              I build web products where the interaction feels considered, the
+              system underneath is boring in the best way, and the final result
+              stays easy to use after the first impression wears off.
+            </p>
+          </div>
+
+          <aside class="side-note reveal">
+            <strong>Currently</strong>
+            Working across React, Next.js, TypeScript, APIs, and product UI.
+            This space is less pitch deck, more living record of the things I
+            have shipped and learned.
+          </aside>
+        </div>
+
+        <div class="hero-bottom reveal">
+          <span>Based in India</span>
+          <span>Available status pending</span>
+          <a href="#work">Selected work</a>
+          <a
+            href="https://pranayyadav.hashnode.dev/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Hashnode
+          </a>
+          <a
+            href="https://www.linkedin.com/in/pranayyadav02/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </header>
+
+      <section id="work" class="section wrap" aria-labelledby="work-title">
+        <div class="section-head reveal">
+          <p class="kicker">Selected Work</p>
+          <div>
+            <h2 id="work-title" class="section-title">Five projects, shown like a working archive.</h2>
+            <p class="section-copy">
+              The final site should feel like a curated body of work, not a
+              generic showcase. Project details can expand into richer case
+              studies once final URLs, screenshots, and impact notes are ready.
+            </p>
+          </div>
+        </div>
+
+        <div class="work-list">
+          <article class="work-item reveal">
+            <h3>Devkit</h3>
+            <div>
+              <p>
+                Developer tooling project. Final copy should explain the
+                workflow it improves, what you built, and why it matters.
+              </p>
+              <div class="work-tags">
+                <span class="tag">Developer tooling</span>
+                <span class="tag">Productivity</span>
+              </div>
+            </div>
+            <div class="thumb">
+              <div class="placeholder">Screenshot pending</div>
+            </div>
+          </article>
+
+          <article class="work-item reveal">
+            <h3>Synaptics</h3>
+            <div>
+              <p>
+                Systems/AI-oriented project placeholder. This can become the
+                strongest technical case study once details are available.
+              </p>
+              <div class="work-tags">
+                <span class="tag">Systems</span>
+                <span class="tag">AI</span>
+              </div>
+            </div>
+            <div class="thumb">
+              <div class="placeholder">Screenshot pending</div>
+            </div>
+          </article>
+
+          <article class="work-item reveal">
+            <h3>ConverseX</h3>
+            <div>
+              <p>
+                Communication-focused project. Use this slot to show product
+                thinking, realtime behavior, and interface decisions.
+              </p>
+              <div class="work-tags">
+                <span class="tag">Realtime</span>
+                <span class="tag">UX</span>
+              </div>
+            </div>
+            <div class="thumb">
+              <img src="/public/conversex.png" alt="ConverseX project preview" />
+            </div>
+          </article>
+
+          <article class="work-item reveal">
+            <h3>Flowify</h3>
+            <div>
+              <p>
+                Workflow/productivity project. This can carry process visuals,
+                state modeling, and dashboard decisions.
+              </p>
+              <div class="work-tags">
+                <span class="tag">Workflow</span>
+                <span class="tag">Next.js</span>
+              </div>
+            </div>
+            <div class="thumb">
+              <img src="/public/flowify.png" alt="Flowify project preview" />
+            </div>
+          </article>
+
+          <article class="work-item reveal">
+            <h3>Stonkify</h3>
+            <div>
+              <p>
+                Finance/data UI project. Final copy should highlight data
+                handling, dashboard clarity, and measurable outcomes.
+              </p>
+              <div class="work-tags">
+                <span class="tag">Finance</span>
+                <span class="tag">Data UI</span>
+              </div>
+            </div>
+            <div class="thumb">
+              <img src="/public/stonkify.jpg" alt="Stonkify project preview" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="section wrap" aria-labelledby="experience-title">
+        <div class="section-head reveal">
+          <p class="kicker">Experience</p>
+          <div>
+            <h2 id="experience-title" class="section-title">Work history, edited for signal.</h2>
+            <p class="section-copy">
+              This section should avoid resume-dump energy. Each row should tell
+              what changed because you were involved.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-row reveal">
+            <time>Recent</time>
+            <div>
+              <h3>Software Engineer</h3>
+              <p>
+                Product engineering, frontend systems, and practical full-stack
+                work. Final copy should use outcomes instead of responsibility lists.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-row reveal">
+            <time>Earlier</time>
+            <div>
+              <h3>Frontend and full-stack projects</h3>
+              <p>
+                Experience entries can stay compact and link back to the project
+                archive when there is a stronger story to show.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="section wrap" aria-labelledby="about-title">
+        <div class="two-col">
+          <div class="reveal">
+            <p class="kicker">About</p>
+          </div>
+          <div class="reveal">
+            <h2 id="about-title" class="about-text">
+              I care about the little interface details, but I care more that
+              they sit on top of <mark>clear, dependable systems.</mark>
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" class="section wrap" aria-labelledby="stack-title">
+        <div class="section-head reveal">
+          <p class="kicker">Stack</p>
+          <div>
+            <h2 id="stack-title" class="section-title">Tools grouped by the work they do.</h2>
+          </div>
+        </div>
+
+        <div class="stack-grid">
+          <article class="stack-card reveal">
+            <h3>Interfaces</h3>
+            <p>React, Next.js, TypeScript, Tailwind, accessibility, responsive systems.</p>
+          </article>
+          <article class="stack-card reveal">
+            <h3>Application logic</h3>
+            <p>APIs, state, authentication, data flow, and practical backend work.</p>
+          </article>
+          <article class="stack-card reveal">
+            <h3>Polish</h3>
+            <p>Performance, animation restraint, metadata, deployment, and cleanup.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="writing" class="section wrap" aria-labelledby="writing-title">
+        <div class="section-head reveal">
+          <p class="kicker">Writing</p>
+          <div>
+            <h2 id="writing-title" class="section-title">Notes, posts, and public thinking.</h2>
+            <p class="section-copy">
+              Hashnode should be the primary source. LinkedIn can stay curated
+              unless reliable public post fetching is available.
+            </p>
+          </div>
+        </div>
+
+        <div class="writing-grid">
+          <a class="writing-card reveal" href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">
+            <span class="tag">Hashnode</span>
+            <h3>Technical writing</h3>
+            <p>Engineering posts, notes, and longer-form learning records.</p>
+          </a>
+          <a class="writing-card reveal" href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">
+            <span class="tag">LinkedIn</span>
+            <h3>Professional updates</h3>
+            <p>Public posts, career updates, and proof of active work.</p>
+          </a>
+          <article class="writing-card reveal">
+            <span class="tag">Later</span>
+            <h3>Curated fallback</h3>
+            <p>Manual links keep this section stable if platform feeds fail.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section wrap" aria-labelledby="contact-title">
+        <div class="contact reveal">
+          <h2 id="contact-title">Let’s build something useful.</h2>
+          <div class="contact-links">
+            <a href="mailto:hello@example.com">Email <span>placeholder</span></a>
+            <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn <span>profile</span></a>
+            <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume <span>Drive</span></a>
+            <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode <span>writing</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      Static prototype. Final version should replace placeholders with real
+      project links, screenshots, status, and contact email.
+    </footer>
+
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        reveals.forEach((element) => observer.observe(element));
+      } else {
+        reveals.forEach((element) => element.classList.add("visible"));
+      }
+    </script>
+  </body>
+</html>
