@@ -1,6 +1,7 @@
 import { DossierFrame } from '@/components/dossier/DossierFrame';
 import { DossierNav } from '@/components/dossier/DossierNav';
 import { HeroDossier } from '@/components/dossier/HeroDossier';
+import { ProjectGallery } from '@/components/dossier/ProjectGallery';
 import { SectionHeader } from '@/components/dossier/SectionHeader';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -30,9 +31,7 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
       <main>
         <section id="work" className="border-b border-dossier-line">
           <SectionHeader eyebrow="01 / Work" title="Project records" />
-          <div className="p-4 font-dossier-mono text-sm leading-7 text-dossier-muted">
-            Project gallery lands in Phase 5.
-          </div>
+          <ProjectGallery />
         </section>
 
         <section id="info" className="border-b border-dossier-line">
