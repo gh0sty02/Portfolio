@@ -65,9 +65,7 @@ export const profile = {
   headline: 'Interfaces, systems, and practical product work.',
   intro:
     'Senior full-stack engineer building scalable, high-performance web applications across React, TypeScript, Next.js, NestJS, GraphQL, and production automation.',
-  resumeUrl:
-    process.env.NEXT_PUBLIC_RESUME_URL ??
-    'https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link',
+  resumeUrl: '/api/resume',
   email: 'pranayyadav08@gmail.com',
   availability: '',
 };
@@ -314,7 +312,7 @@ export const contactLinks: ContactLink[] = [
   },
   {
     label: 'Resume',
-    detail: 'Drive',
+    detail: 'PDF',
     href: profile.resumeUrl,
   },
   {

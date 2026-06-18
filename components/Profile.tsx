@@ -44,7 +44,7 @@ const Profile = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href={process.env.NEXT_PUBLIC_RESUME_LINK}
+          href="/api/resume"
           className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-md transition-colors"
         >
           <IoNewspaper />

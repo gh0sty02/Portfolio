@@ -18,7 +18,7 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
     <>
       <Head>
         <title>Pranay Yadav | Portfolio</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta
           name="description"
           content="Visual portfolio of selected work, field notes, and public writing by Pranay Yadav."

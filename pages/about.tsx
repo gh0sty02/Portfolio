@@ -29,7 +29,7 @@ const AboutScreen = () => {
     <>
       <Head>
         <title>Pranay Yadav | About</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta
           name="description"
           content="Pranay Yadav | Full stack developer "

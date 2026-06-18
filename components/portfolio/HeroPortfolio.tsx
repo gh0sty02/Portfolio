@@ -55,7 +55,7 @@ export function HeroPortfolio() {
             rel="noreferrer"
             target="_blank"
           >
-            Resume <b className="text-portfolio-ink">Drive</b>
+            Resume <b className="text-portfolio-ink">PDF</b>
           </a>
         </div>
       </motion.aside>
