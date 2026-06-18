@@ -18,12 +18,12 @@ export function PortfolioNav() {
       </a>
       <nav
         aria-label="Primary navigation"
-        className="grid grid-cols-1 gap-4 border-b border-portfolio-line p-4 font-portfolio-mono text-[13px] font-semibold uppercase text-portfolio-muted sm:grid-cols-[1fr_auto]"
+        className="grid grid-cols-1 gap-3 border-b border-portfolio-line px-4 py-3 font-portfolio-mono text-[12px] font-semibold uppercase text-portfolio-muted sm:grid-cols-[1fr_auto] sm:items-center sm:text-[13px]"
       >
         <a className="text-portfolio-ink no-underline" href="#top">
           {profile.name} / Portfolio
         </a>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 sm:justify-end">
           {links.map((link) => (
             <a
               key={link.href}

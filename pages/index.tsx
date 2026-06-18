@@ -47,8 +47,8 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
           <WritingPanels />
         </section>
 
-        <section id="contact" className="grid grid-cols-1 border-b border-portfolio-line md:grid-cols-[1fr_380px]">
-          <h2 className="border-b border-portfolio-line p-[clamp(24px,5vw,54px)] font-portfolio-heading text-[clamp(3rem,8vw,8rem)] font-extrabold leading-[0.94] text-portfolio-ink md:border-b-0 md:border-r">
+        <section id="contact" className="grid grid-cols-1 border-b border-portfolio-line lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)]">
+          <h2 className="border-b border-portfolio-line p-[clamp(24px,5vw,54px)] font-portfolio-heading text-[clamp(3rem,11vw,7.5rem)] font-extrabold leading-[0.94] text-portfolio-ink lg:border-b-0 lg:border-r">
             Reach out.
           </h2>
           <ContactLinks />

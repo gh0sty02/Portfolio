@@ -16,8 +16,8 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
   return (
     <article
       className={cn(
-        'portfolio-reveal group min-h-[430px] border-b border-r border-portfolio-line bg-portfolio-paper p-4 transition-colors hover:bg-portfolio-bg',
-        project.size === 'large' ? 'md:col-span-7' : 'md:col-span-5'
+        'portfolio-reveal group border-b border-portfolio-line bg-portfolio-paper p-4 transition-colors hover:bg-portfolio-bg sm:min-h-[430px] lg:border-r',
+        project.size === 'large' ? 'lg:col-span-7' : 'lg:col-span-5'
       )}
     >
       <div className="flex min-h-full flex-col justify-between gap-6">
@@ -25,7 +25,7 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
           <p className="mb-4 font-portfolio-mono text-xs font-bold uppercase text-portfolio-accent">
             {project.category}
           </p>
-          <h3 className="font-portfolio-heading text-[clamp(2.4rem,5vw,5rem)] font-extrabold leading-[0.94] text-portfolio-ink">
+          <h3 className="text-balance font-portfolio-heading text-[clamp(2.3rem,10vw,4.75rem)] font-extrabold leading-[0.94] text-portfolio-ink">
             {project.name}
           </h3>
           <p className="mt-4 max-w-[560px] font-portfolio-mono text-sm leading-[1.7] text-portfolio-muted">
@@ -34,7 +34,7 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
         </div>
 
         <div>
-          <div className="mt-6 grid h-[240px] place-items-center overflow-hidden border border-portfolio-line bg-[#efeee8]">
+          <div className="mt-6 grid h-[210px] place-items-center overflow-hidden border border-portfolio-line bg-[#efeee8] sm:h-[260px] lg:h-[240px]">
             {project.image ? (
               <Image
                 alt={`${project.name} project preview`}
@@ -51,7 +51,7 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
             )}
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 font-portfolio-mono text-xs text-portfolio-muted">
+          <div className="mt-4 flex flex-col gap-3 font-portfolio-mono text-xs text-portfolio-muted sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
@@ -64,7 +64,7 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
             </div>
 
             {links.length > 0 ? (
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 {links.map((link) => (
                   <a
                     className="font-bold uppercase text-portfolio-ink transition-colors hover:text-portfolio-accent focus-visible:text-portfolio-accent"

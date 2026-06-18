@@ -5,21 +5,21 @@ export function HeroPortfolio() {
   return (
     <section
       id="top"
-      className="portfolio-reveal grid min-h-[calc(100vh-57px)] grid-cols-1 border-b border-portfolio-line lg:grid-cols-[minmax(0,1fr)_420px]"
+      className="portfolio-reveal grid grid-cols-1 border-b border-portfolio-line lg:min-h-[calc(100vh-49px)] lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)]"
     >
-      <div className="flex flex-col justify-between gap-12 border-b border-portfolio-line p-[clamp(24px,5vw,72px)] lg:border-b-0 lg:border-r">
-        <h1 className="max-w-[1120px] text-balance font-portfolio-heading text-[clamp(3.8rem,9vw,10.5rem)] font-extrabold leading-[0.94] text-portfolio-ink">
+      <div className="flex min-h-[560px] flex-col justify-between gap-10 border-b border-portfolio-line p-[clamp(24px,5vw,72px)] sm:min-h-[640px] lg:min-h-0 lg:border-b-0 lg:border-r">
+        <h1 className="max-w-[980px] text-balance font-portfolio-heading text-[clamp(3.25rem,12vw,9rem)] font-extrabold leading-[0.94] text-portfolio-ink">
           {profile.headline}
         </h1>
-        <p className="max-w-[780px] font-portfolio-mono text-sm leading-[1.8] text-portfolio-muted md:text-base">
+        <p className="max-w-[720px] font-portfolio-mono text-sm leading-[1.8] text-portfolio-muted sm:text-base">
           {profile.intro}
         </p>
       </div>
 
-      <aside className="grid content-end gap-4 p-4">
+      <aside className="grid content-end gap-4 p-4 sm:grid-cols-[minmax(0,0.85fr)_minmax(240px,1fr)] sm:items-end lg:grid-cols-1">
         <Image
           alt="Abstract personal mark for Pranay Yadav"
-          className="aspect-[4/5] w-full border border-portfolio-line bg-white object-cover"
+          className="aspect-[4/5] w-full max-w-[420px] border border-portfolio-line bg-white object-cover sm:justify-self-end lg:max-w-none"
           height={1125}
           src="/profile-mark.svg"
           unoptimized

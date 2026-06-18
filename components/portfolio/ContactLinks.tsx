@@ -12,7 +12,7 @@ export function ContactLinks() {
         );
 
         const className =
-          'flex justify-between gap-4 border-b border-portfolio-line py-3 text-portfolio-muted no-underline transition-colors hover:text-portfolio-accent';
+          'flex flex-wrap justify-between gap-x-4 gap-y-1 border-b border-portfolio-line py-3 text-portfolio-muted no-underline transition-colors hover:text-portfolio-accent';
 
         if (!link.href) {
           return (

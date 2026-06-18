@@ -69,6 +69,15 @@
     @apply bg-portfolio-bg text-foreground;
   }
 
+  h1,
+  h2,
+  h3,
+  p,
+  a,
+  span {
+    overflow-wrap: break-word;
+  }
+
   :focus-visible {
     outline: 3px solid #214cff;
     outline-offset: 4px;
