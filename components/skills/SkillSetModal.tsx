@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 'use client';
 
 import {
