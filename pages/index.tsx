@@ -1,13 +1,17 @@
 import { ContactLinks } from '@/components/portfolio/ContactLinks';
+import { ExperienceTimeline } from '@/components/portfolio/ExperienceTimeline';
 import { PortfolioFrame } from '@/components/portfolio/PortfolioFrame';
 import { PortfolioNav } from '@/components/portfolio/PortfolioNav';
 import { HeroPortfolio } from '@/components/portfolio/HeroPortfolio';
 import { InfoPanels } from '@/components/portfolio/InfoPanels';
+import { MetricsStrip } from '@/components/portfolio/MetricsStrip';
 import { ProjectGallery } from '@/components/portfolio/ProjectGallery';
 import { SectionHeader } from '@/components/portfolio/SectionHeader';
+import { SkillsStack } from '@/components/portfolio/SkillsStack';
 import { WritingPanels } from '@/components/portfolio/WritingPanels';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { MotionConfig } from 'framer-motion';
 import type { ReactElement } from 'react';
 
 const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = () => {
@@ -30,6 +34,7 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
       </Head>
 
       <HeroPortfolio />
+      <MetricsStrip />
 
       <main>
         <section id="work" className="border-b border-portfolio-line">
@@ -42,8 +47,18 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
           <InfoPanels />
         </section>
 
+        <section id="experience" className="border-b border-portfolio-line">
+          <SectionHeader eyebrow="03 / Experience" title="Teams, systems, and production delivery." />
+          <ExperienceTimeline />
+        </section>
+
+        <section id="skills" className="border-b border-portfolio-line">
+          <SectionHeader eyebrow="04 / Skills" title="A stacked technical toolkit." />
+          <SkillsStack />
+        </section>
+
         <section id="writing" className="border-b border-portfolio-line">
-          <SectionHeader eyebrow="03 / Writing" title="Writing and public trail." />
+          <SectionHeader eyebrow="05 / Writing" title="Writing and public trail." />
           <WritingPanels />
         </section>
 
@@ -60,10 +75,12 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
 
 Home.getLayout = function getLayout(page: ReactElement) {
   return (
-    <PortfolioFrame>
-      <PortfolioNav />
-      {page}
-    </PortfolioFrame>
+    <MotionConfig reducedMotion="user">
+      <PortfolioFrame>
+        <PortfolioNav />
+        {page}
+      </PortfolioFrame>
+    </MotionConfig>
   );
 };
 

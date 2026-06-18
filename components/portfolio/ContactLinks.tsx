@@ -1,8 +1,15 @@
 import { contactLinks } from 'data/portfolio';
+import { motion } from 'framer-motion';
 
 export function ContactLinks() {
   return (
-    <div className="portfolio-reveal grid content-end p-4 font-portfolio-mono text-[13px]">
+    <motion.div
+      className="grid content-end p-4 font-portfolio-mono text-[13px]"
+      initial={{ opacity: 0, y: 22 }}
+      transition={{ duration: 0.45, ease: 'easeOut' }}
+      viewport={{ once: true, margin: '-90px' }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       {contactLinks.map((link) => {
         const content = (
           <>
@@ -34,6 +41,6 @@ export function ContactLinks() {
           </a>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

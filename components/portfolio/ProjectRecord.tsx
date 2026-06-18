@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import type { FeaturedProject } from 'data/portfolio';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 type ProjectRecordProps = {
@@ -14,11 +15,16 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
   ].filter(Boolean) as { label: string; href: string }[];
 
   return (
-    <article
+    <motion.article
       className={cn(
-        'portfolio-reveal group border-b border-portfolio-line bg-portfolio-paper p-4 transition-colors hover:bg-portfolio-bg sm:min-h-[430px] lg:border-r',
+        'group border-b border-portfolio-line bg-portfolio-paper p-4 transition-colors hover:bg-portfolio-bg sm:min-h-[430px] lg:border-r',
         project.size === 'large' ? 'lg:col-span-7' : 'lg:col-span-5'
       )}
+      initial={{ opacity: 0, y: 28 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      viewport={{ once: true, margin: '-90px' }}
+      whileHover={{ y: -6 }}
+      whileInView={{ opacity: 1, y: 0 }}
     >
       <div className="flex min-h-full flex-col justify-between gap-6">
         <div>
@@ -36,14 +42,20 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
         <div>
           <div className="mt-6 grid h-[210px] place-items-center overflow-hidden border border-portfolio-line bg-[#efeee8] sm:h-[260px] lg:h-[240px]">
             {project.image ? (
-              <Image
-                alt={`${project.name} project preview`}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                height={440}
-                src={project.image}
-                unoptimized={isVectorImage}
-                width={720}
-              />
+              <motion.div
+                className="h-full w-full"
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                whileHover={{ scale: 1.04 }}
+              >
+                <Image
+                  alt={`${project.name} project preview`}
+                  className="h-full w-full object-cover"
+                  height={440}
+                  src={project.image}
+                  unoptimized={isVectorImage}
+                  width={720}
+                />
+              </motion.div>
             ) : (
               <span className="px-6 text-center font-portfolio-mono text-sm text-portfolio-muted">
                 {project.name} preview unavailable
@@ -83,6 +95,6 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

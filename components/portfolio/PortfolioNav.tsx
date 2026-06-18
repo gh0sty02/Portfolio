@@ -3,6 +3,8 @@ import { profile } from 'data/portfolio';
 const links = [
   { label: 'Work', href: '#work' },
   { label: 'Info', href: '#info' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Writing', href: '#writing' },
   { label: 'Contact', href: '#contact' },
 ];
