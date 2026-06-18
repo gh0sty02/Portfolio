@@ -5,6 +5,7 @@ import { Divider } from '@/components/ui/divider';
 import { useTheme } from '@/hooks/use-theme';
 import { DURATIONS, easing } from 'config/animations';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import Image from 'next/image';
 import styles from './styles.module.css';
 import { cn } from '@/lib/utils';
@@ -20,7 +21,7 @@ export type FeaturedCardProps = {
   isMobile?: boolean;
 };
 
-const variants = {
+const variants: Variants = {
   normal: {
     opacity: 0.85,
   },
@@ -111,13 +112,14 @@ const FeaturedCard = ({
       ? 'bg-black/5'
       : 'bg-white/20';
 
-  const CoverImage = () => (
+  const coverImage = (
     <MotionDiv
       className="relative w-full overflow-hidden"
       style={{ height }}
-      initial={variants.normal}
-      whileHover={variants.hover}
-      whileTap={variants.tap}
+      variants={variants}
+      initial="normal"
+      whileHover="hover"
+      whileTap="tap"
     >
       <Image
         src={src}
@@ -142,7 +144,7 @@ const FeaturedCard = ({
       )}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-0 flex md:grid flex-col-reverse md:flex-row">
-        {isLeftImage && <CoverImage />}
+        {isLeftImage && coverImage}
         <ProjectDescription
           idx={idx}
           title={title}
@@ -150,7 +152,7 @@ const FeaturedCard = ({
           ctaUrl={ctaUrl}
           isLeft={isLeftImage}
         />
-        {!isLeftImage && <CoverImage />}
+        {!isLeftImage && coverImage}
       </div>
     </div>
   );

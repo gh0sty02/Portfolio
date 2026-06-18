@@ -24,9 +24,10 @@ const CoverImage: FC<{ proj: IProjects }> = ({ proj }) => {
     >
       <MotionDiv
         className="relative w-full h-full"
-        initial={variants.normal}
-        whileHover={variants.hover}
-        whileTap={variants.tap}
+        variants={variants}
+        initial="normal"
+        whileHover="hover"
+        whileTap="tap"
       >
         <Image
           src={proj.image}

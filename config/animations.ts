@@ -5,7 +5,7 @@ const DURATIONS = {
   Slow: 1.2,
   VerySlow: 1.8,
 };
-const easing = [0.6, -0.05, 0.01, 0.99];
+const easing: [number, number, number, number] = [0.6, -0.05, 0.01, 0.99];
 
 const fadeInUp = {
   initial: {
