@@ -22,12 +22,19 @@ export function SkillsStack() {
                 skillCategories.length % 2 !== 0 &&
                 'lg:col-span-2'
             )}
-            initial={{ opacity: 0, y: 24 }}
+            initial="hidden"
             key={category.title}
-            transition={{ delay: index * 0.05, duration: 0.45, ease: 'easeOut' }}
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { delay: index * 0.05, duration: 0.45, ease: 'easeOut', staggerChildren: 0.03 },
+              },
+            }}
             viewport={{ once: true, margin: '-90px' }}
             whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView="visible"
           >
             <div className="flex items-baseline justify-between">
               <p className="font-portfolio-mono text-xs font-bold text-portfolio-muted">
@@ -52,18 +59,14 @@ export function SkillsStack() {
               </p>
             ) : null}
             <div className="mt-8 flex flex-wrap gap-3">
-              {category.all.map((skill, skillIndex) => (
+              {category.all.map((skill) => (
                 <motion.span
                   className="border border-portfolio-line px-4 py-3 font-portfolio-mono text-xs font-bold uppercase text-portfolio-muted transition-colors group-hover:border-portfolio-accent hover:!bg-portfolio-ink hover:!text-portfolio-bg group-hover:text-portfolio-ink"
-                  initial={{ opacity: 0, y: 8 }}
                   key={skill}
-                  transition={{
-                    delay: index * 0.05 + skillIndex * 0.03,
-                    duration: 0.3,
-                    ease: 'easeOut',
+                  variants={{
+                    hidden: { opacity: 0, y: 8 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
                   }}
-                  viewport={{ once: true, margin: '-90px' }}
-                  whileInView={{ opacity: 1, y: 0 }}
                 >
                   {skill}
                 </motion.span>
