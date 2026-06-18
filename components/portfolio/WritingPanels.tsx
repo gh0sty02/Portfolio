@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export function WritingPanels() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3">
+    <div className="grid grid-cols-1 lg:grid-cols-2">
       {writingLinks.map((item) => {
         const content = (
           <>
@@ -27,6 +27,7 @@ export function WritingPanels() {
           initial: { opacity: 0, y: 22 },
           transition: { duration: 0.45, ease: 'easeOut' as const },
           viewport: { once: true, margin: '-90px' },
+          whileHover: { y: -4, transition: { duration: 0.2, ease: 'easeOut' as const } },
           whileInView: { opacity: 1, y: 0 },
         };
 

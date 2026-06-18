@@ -11,6 +11,7 @@ export function ExperienceTimeline() {
           key={`${record.title}-${record.scope}`}
           transition={{ delay: index * 0.08, duration: 0.5, ease: 'easeOut' }}
           viewport={{ once: true, margin: '-90px' }}
+          whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
           whileInView={{ opacity: 1, y: 0 }}
         >
           <p className="mb-4 text-xs font-bold uppercase text-portfolio-accent">

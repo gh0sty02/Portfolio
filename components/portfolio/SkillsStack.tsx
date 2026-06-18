@@ -1,12 +1,4 @@
-import {
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalTitle,
-  ModalTrigger,
-} from '@/components/ui/modal';
+import { cn } from '@/lib/utils';
 import { skillCategories } from 'data/portfolio';
 import { motion } from 'framer-motion';
 
@@ -16,83 +8,70 @@ const allSkills = skillCategories.flatMap((category) =>
 
 export function SkillsStack() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12">
-      <div className="border-b border-portfolio-line p-6 lg:col-span-4 lg:border-r lg:p-8">
-        <motion.p
-          className="max-w-[460px] font-portfolio-mono text-sm leading-[1.9] text-portfolio-muted"
-          initial={{ opacity: 0, y: 18 }}
-          viewport={{ once: true, margin: '-80px' }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          A stacked technical surface across product UI, backend contracts,
-          automation, performance, accessibility, and test coverage.
-        </motion.p>
+    <div className="grid grid-cols-1 lg:grid-cols-2">
+      {skillCategories.map((category, index) => {
+        const Icon = category.icon;
+        const isLearning = Boolean(category.note);
 
-        <Modal modal={false}>
-          <ModalTrigger asChild>
-            <button
-              className="mt-8 border border-portfolio-ink px-5 py-3 font-portfolio-mono text-xs font-bold uppercase text-portfolio-ink transition-colors hover:bg-portfolio-ink hover:text-white focus-visible:bg-portfolio-ink focus-visible:text-white"
-              type="button"
-            >
-              View all skills
-            </button>
-          </ModalTrigger>
-          <ModalContent className="max-w-[1040px] rounded-none border border-portfolio-line bg-portfolio-bg p-0 text-portfolio-ink">
-            <ModalHeader className="border-b border-portfolio-line p-6 pr-12">
-              <ModalTitle className="font-portfolio-heading text-[clamp(2rem,5vw,4rem)] font-extrabold leading-none">
-                Full skill inventory
-              </ModalTitle>
-              <ModalCloseButton />
-            </ModalHeader>
-            <ModalBody className="grid max-h-[70vh] gap-8 overflow-y-auto p-6">
-              {skillCategories.map((category) => (
-                <section key={category.title}>
-                  <h3 className="mb-4 font-portfolio-mono text-xs font-bold uppercase text-portfolio-accent">
-                    {category.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {category.all.map((skill) => (
-                      <span
-                        className="border border-portfolio-line bg-portfolio-paper px-4 py-3 font-portfolio-mono text-xs uppercase text-portfolio-muted"
-                        key={skill}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </section>
-              ))}
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      </div>
-
-      <div className="grid grid-cols-1 lg:col-span-8 lg:grid-cols-2">
-        {skillCategories.map((category, index) => (
+        return (
           <motion.article
-            className="group min-h-[260px] border-b border-portfolio-line p-6 transition-colors hover:bg-portfolio-paper lg:border-r lg:p-8"
+            className={cn(
+              'group border-b border-portfolio-line p-6 transition-colors hover:bg-portfolio-paper lg:border-r lg:p-8',
+              isLearning && 'border-dashed',
+              index === skillCategories.length - 1 &&
+                skillCategories.length % 2 !== 0 &&
+                'lg:col-span-2'
+            )}
             initial={{ opacity: 0, y: 24 }}
             key={category.title}
             transition={{ delay: index * 0.05, duration: 0.45, ease: 'easeOut' }}
             viewport={{ once: true, margin: '-90px' }}
+            whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <h3 className="font-portfolio-heading text-[clamp(2rem,6vw,4rem)] font-extrabold leading-none text-portfolio-ink">
-              {category.title}
-            </h3>
+            <div className="flex items-baseline justify-between">
+              <p className="font-portfolio-mono text-xs font-bold text-portfolio-muted">
+                {String(index + 1).padStart(2, '0')} /
+              </p>
+              <p className="font-portfolio-mono text-xs font-bold uppercase text-portfolio-muted">
+                {category.all.length} skills
+              </p>
+            </div>
+            <div className="mt-1 flex items-center gap-3">
+              <Icon
+                aria-hidden="true"
+                className="h-6 w-6 shrink-0 text-portfolio-ink"
+              />
+              <h3 className="font-portfolio-heading text-[clamp(1.5rem,3.5vw,2.25rem)] font-extrabold leading-none text-portfolio-ink">
+                {category.title}
+              </h3>
+            </div>
+            {category.note ? (
+              <p className="mt-2 font-portfolio-mono text-xs italic text-portfolio-accent">
+                {category.note}
+              </p>
+            ) : null}
             <div className="mt-8 flex flex-wrap gap-3">
-              {category.featured.map((skill) => (
-                <span
-                  className="border border-portfolio-line px-4 py-3 font-portfolio-mono text-xs font-bold uppercase text-portfolio-muted transition-colors group-hover:border-portfolio-accent group-hover:text-portfolio-ink"
+              {category.all.map((skill, skillIndex) => (
+                <motion.span
+                  className="border border-portfolio-line px-4 py-3 font-portfolio-mono text-xs font-bold uppercase text-portfolio-muted transition-colors group-hover:border-portfolio-accent hover:!bg-portfolio-ink hover:!text-portfolio-bg group-hover:text-portfolio-ink"
+                  initial={{ opacity: 0, y: 8 }}
                   key={skill}
+                  transition={{
+                    delay: index * 0.05 + skillIndex * 0.03,
+                    duration: 0.3,
+                    ease: 'easeOut',
+                  }}
+                  viewport={{ once: true, margin: '-90px' }}
+                  whileInView={{ opacity: 1, y: 0 }}
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
           </motion.article>
-        ))}
-      </div>
+        );
+      })}
 
       <p className="sr-only">
         {allSkills.map(({ skill }) => skill).join(', ')}

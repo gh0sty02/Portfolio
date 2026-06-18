@@ -5,9 +5,10 @@ import Image from 'next/image';
 
 type ProjectRecordProps = {
   project: FeaturedProject;
+  fullWidth?: boolean;
 };
 
-export function ProjectRecord({ project }: ProjectRecordProps) {
+export function ProjectRecord({ project, fullWidth }: ProjectRecordProps) {
   const isVectorImage = project.image?.endsWith('.svg') ?? false;
   const links = [
     project.liveUrl ? { label: 'Live', href: project.liveUrl } : null,
@@ -18,11 +19,16 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
     <motion.article
       className={cn(
         'group border-b border-portfolio-line bg-portfolio-paper p-4 transition-colors hover:bg-portfolio-bg sm:min-h-[430px] lg:border-r',
-        project.size === 'large' ? 'lg:col-span-7' : 'lg:col-span-5'
+        fullWidth
+          ? 'lg:col-span-12'
+          : project.size === 'large'
+            ? 'lg:col-span-7'
+            : 'lg:col-span-5'
       )}
       initial={{ opacity: 0, y: 28 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       viewport={{ once: true, margin: '-90px' }}
+      whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
       whileInView={{ opacity: 1, y: 0 }}
     >
       <div className="flex min-h-full flex-col justify-between gap-6">
@@ -39,7 +45,7 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
         </div>
 
         <div>
-          <div className="mt-6 grid h-[210px] place-items-center overflow-hidden border border-portfolio-line bg-[#efeee8] sm:h-[260px] lg:h-[240px]">
+          <div className="mt-6 grid aspect-[16/9] place-items-center overflow-hidden border border-portfolio-line bg-[#efeee8]">
             {project.image ? (
               <motion.div
                 className="h-full w-full"
@@ -48,7 +54,12 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
               >
                 <Image
                   alt={`${project.name} project preview`}
-                  className="h-full w-full object-cover"
+                  className={cn(
+                    'h-full w-full object-cover',
+                    project.imagePosition === 'center'
+                      ? 'object-center'
+                      : 'object-top'
+                  )}
                   height={440}
                   src={project.image}
                   unoptimized={isVectorImage}

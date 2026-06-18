@@ -11,6 +11,7 @@ export function InfoPanels() {
           key={panel.title}
           transition={{ duration: 0.45, ease: 'easeOut' }}
           viewport={{ once: true, margin: '-90px' }}
+          whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
           whileInView={{ opacity: 1, y: 0 }}
         >
           <h3 className="mb-4 font-portfolio-heading text-[28px] font-extrabold leading-none text-portfolio-ink">

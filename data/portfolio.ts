@@ -1,3 +1,13 @@
+import type { IconType } from 'react-icons';
+import {
+  SiDocker,
+  SiJest,
+  SiNodedotjs,
+  SiOpenai,
+  SiReact,
+  SiTypescript,
+} from 'react-icons/si';
+
 export type ProjectRecordSize = 'large' | 'small';
 
 export type FeaturedProject = {
@@ -7,6 +17,7 @@ export type FeaturedProject = {
   status: 'ready';
   size: ProjectRecordSize;
   image?: string;
+  imagePosition?: 'top' | 'center';
   liveUrl?: string;
   githubUrl?: string;
   tags: string[];
@@ -19,7 +30,7 @@ export type InfoPanel = {
 
 export type WritingLink = {
   title: string;
-  platform: 'Hashnode' | 'LinkedIn' | 'Archive';
+  platform: 'Hashnode' | 'LinkedIn';
   url?: string;
   body: string;
   meta: string;
@@ -40,6 +51,8 @@ export type ExperienceRecord = {
 
 export type SkillCategory = {
   title: string;
+  note?: string;
+  icon: IconType;
   featured: string[];
   all: string[];
 };
@@ -63,24 +76,24 @@ export const featuredProjects: FeaturedProject[] = [
   {
     name: 'Devkit',
     summary:
-      'A private TypeScript toolkit for developer workflows, published as a live studio experience for composing practical build utilities and interface patterns.',
-    category: 'Developer tooling',
+      'An interactive platform for mastering algorithms and acing technical interviews. Step-by-step visualizations across 10+ algorithm patterns, paired with a curated bank of real interview questions and answers.',
+    category: 'Interview prep platform',
     status: 'ready',
     size: 'large',
-    image: '/devkit-preview.svg',
+    image: '/devkit.png',
     liveUrl: 'https://devkit-studio.vercel.app',
-    tags: ['TypeScript', 'DX', 'Tooling'],
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
   },
   {
-    name: 'Synaptics',
+    name: 'Synaptic',
     summary:
-      'A Python systems project focused on agentic workflows and automation experiments, using small composable routines instead of a heavy product shell.',
-    category: 'Systems / AI',
+      'A multi-agent AI assistant with RAG, memory engineering, and full observability. Built on FastAPI, LangGraph, Unsloth-served Gemma 4, pgvector, and Redis, answering questions grounded in indexed knowledge bases while keeping memory across sessions.',
+    category: 'Multi-agent AI / RAG',
     status: 'ready',
     size: 'small',
     image: '/synaptic-preview.svg',
     githubUrl: 'https://github.com/gh0sty02/synaptic',
-    tags: ['Python', 'Automation', 'AI'],
+    tags: ['FastAPI', 'LangGraph', 'RAG'],
   },
   {
     name: 'ConverseX',
@@ -114,9 +127,20 @@ export const featuredProjects: FeaturedProject[] = [
     status: 'ready',
     size: 'large',
     image: '/stonkify.jpg',
-    liveUrl: 'https://stonkify.vercel.app/',
+    imagePosition: 'center',
     githubUrl: 'https://github.com/gh0sty02/Stonkify',
     tags: ['Next.js', 'MongoDB', 'RTK Query'],
+  },
+  {
+    name: 'Natours',
+    summary:
+      'A tour booking app built with React, Node.js, Express, MongoDB, and Mongoose, with a protected REST API serving tours, users, and reviews, plus account features like profile image upload and instant editing.',
+    category: 'Booking platform',
+    status: 'ready',
+    size: 'small',
+    image: '/natours.png',
+    githubUrl: 'https://github.com/gh0sty02/natourss',
+    tags: ['React', 'Node.js', 'MongoDB'],
   },
 ];
 
@@ -180,11 +204,13 @@ export const experienceRecords: ExperienceRecord[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: 'Languages',
+    icon: SiTypescript,
     featured: ['TypeScript', 'JavaScript ES6+', 'Python', 'SQL'],
     all: ['TypeScript', 'JavaScript ES6+', 'Python', 'SQL', 'HTML5', 'CSS3'],
   },
   {
     title: 'Frontend',
+    icon: SiReact,
     featured: ['React', 'Next.js', 'D3.js', 'Tailwind'],
     all: [
       'React.js',
@@ -203,6 +229,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Backend & Data',
+    icon: SiNodedotjs,
     featured: ['Node.js', 'NestJS', 'GraphQL', 'Prisma'],
     all: [
       'Node.js',
@@ -219,7 +246,14 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
+    title: 'Testing',
+    icon: SiJest,
+    featured: ['Jest', 'React Testing Library', 'Playwright', 'TDD'],
+    all: ['Jest', 'React Testing Library', 'Playwright', 'TDD', 'Peer reviews', 'Regression testing'],
+  },
+  {
     title: 'Platform & Tooling',
+    icon: SiDocker,
     featured: ['Docker', 'GitHub Actions', 'Web Workers', 'CI/CD'],
     all: [
       'Docker',
@@ -237,9 +271,11 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: 'Testing',
-    featured: ['Jest', 'React Testing Library', 'Playwright', 'TDD'],
-    all: ['Jest', 'React Testing Library', 'Playwright', 'TDD', 'Peer reviews', 'Regression testing'],
+    title: 'Currently learning',
+    note: 'Learning in public.',
+    icon: SiOpenai,
+    featured: ['AI Agents', 'RAG', 'LangGraph', 'OpenAI SDK'],
+    all: ['AI Agents', 'RAG', 'LangGraph', 'OpenAI SDK'],
   },
 ];
 
@@ -248,24 +284,15 @@ export const writingLinks: WritingLink[] = [
     title: 'Hashnode',
     platform: 'Hashnode',
     url: 'https://pranayyadav.hashnode.dev/',
-    meta: 'External preview',
-    body:
-      'Technical writing and engineering notes. The live feed is intentionally linked out because Hashnode is returning a bot challenge for RSS/API access from this environment.',
+    meta: 'Articles',
+    body: 'Long-form technical writing and engineering notes on the stuff I build and break.',
   },
   {
     title: 'LinkedIn',
     platform: 'LinkedIn',
     url: 'https://www.linkedin.com/in/pranayyadav02/',
-    meta: 'Professional feed',
-    body: 'Professional updates, project context, and career notes beyond the codebase.',
-  },
-  {
-    title: 'Archive',
-    platform: 'Archive',
-    url: 'https://pranayyadav.hashnode.dev/',
-    meta: 'Curated fallback',
-    body:
-      'A manual set of featured posts can live here without depending on a third-party API. Add post URLs and the cards can render stable previews.',
+    meta: 'Learning in public',
+    body: 'Day-to-day updates on what I am learning, building, and figuring out beyond the codebase.',
   },
 ];
 

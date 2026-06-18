@@ -10,7 +10,7 @@ import { SkillsStack } from '@/components/portfolio/SkillsStack';
 import { WritingPanels } from '@/components/portfolio/WritingPanels';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { MotionConfig } from 'framer-motion';
+import { MotionConfig, motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
 const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = () => {
@@ -61,9 +61,15 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
         </section>
 
         <section id="contact" className="grid grid-cols-1 border-b border-portfolio-line lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)]">
-          <h2 className="border-b border-portfolio-line p-[clamp(24px,5vw,54px)] font-portfolio-heading text-[clamp(3rem,11vw,7.5rem)] font-extrabold leading-[0.94] text-portfolio-ink lg:border-b-0 lg:border-r">
+          <motion.h2
+            className="border-b border-portfolio-line p-[clamp(24px,5vw,54px)] font-portfolio-heading text-[clamp(3rem,11vw,7.5rem)] font-extrabold leading-[0.94] text-portfolio-ink lg:border-b-0 lg:border-r"
+            initial={{ opacity: 0, y: 22 }}
+            transition={{ duration: 0.45, ease: 'easeOut' }}
+            viewport={{ once: true, margin: '-90px' }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
             Reach out.
-          </h2>
+          </motion.h2>
           <ContactLinks />
         </section>
       </main>

@@ -112,6 +112,67 @@
   }
 }
 
+/* Modal enter/exit animations (Radix waits for these before unmounting) */
+.modal-overlay[data-state='open'] {
+  animation: modal-overlay-in 180ms ease-out;
+}
+
+.modal-overlay[data-state='closed'] {
+  animation: modal-overlay-out 150ms ease-in forwards;
+}
+
+.modal-content[data-state='open'] {
+  animation: modal-content-in 200ms ease-out;
+}
+
+.modal-content[data-state='closed'] {
+  animation: modal-content-out 150ms ease-in forwards;
+}
+
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes modal-content-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+}
+
 /* Logo Hover Effects */
 .logo {
   position: relative;
