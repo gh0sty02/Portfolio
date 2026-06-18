@@ -2,7 +2,7 @@ import { contactLinks } from 'data/portfolio';
 
 export function ContactLinks() {
   return (
-    <div className="dossier-reveal grid content-end p-4 font-dossier-mono text-[13px]">
+    <div className="portfolio-reveal grid content-end p-4 font-portfolio-mono text-[13px]">
       {contactLinks.map((link) => {
         const content = (
           <>
@@ -12,7 +12,7 @@ export function ContactLinks() {
         );
 
         const className =
-          'flex justify-between gap-4 border-b border-dossier-line py-3 text-dossier-muted no-underline transition-colors hover:text-dossier-accent';
+          'flex justify-between gap-4 border-b border-portfolio-line py-3 text-portfolio-muted no-underline transition-colors hover:text-portfolio-accent';
 
         if (!link.href) {
           return (

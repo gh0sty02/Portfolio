@@ -42,7 +42,7 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        dossier: {
+        portfolio: {
           bg: '#f6f6f1',
           ink: '#0e0e0c',
           muted: '#66665f',
@@ -60,8 +60,8 @@ const config: Config = {
         poppins: ['var(--font-poppins)', 'sans-serif'],
         roboto: ['var(--font-roboto-mono)', 'monospace'],
         russo: ['var(--font-russo-one)', 'cursive'],
-        'dossier-heading': ['var(--font-dossier-heading)', 'sans-serif'],
-        'dossier-mono': ['var(--font-dossier-mono)', 'monospace'],
+        'portfolio-heading': ['var(--font-portfolio-heading)', 'sans-serif'],
+        'portfolio-mono': ['var(--font-portfolio-mono)', 'monospace'],
       },
       container: {
         center: true,

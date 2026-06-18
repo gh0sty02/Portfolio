@@ -1,16 +1,16 @@
 import { cn } from '@/lib/utils';
 import type { ReactNode } from 'react';
 
-type DossierFrameProps = {
+type PortfolioFrameProps = {
   children: ReactNode;
   className?: string;
 };
 
-export function DossierFrame({ children, className }: DossierFrameProps) {
+export function PortfolioFrame({ children, className }: PortfolioFrameProps) {
   return (
     <div
       className={cn(
-        'mx-auto min-h-screen w-[min(1240px,calc(100%_-_36px))] border-x border-dossier-line bg-dossier-bg text-dossier-ink',
+        'min-h-screen w-full overflow-x-hidden bg-portfolio-bg text-portfolio-ink',
         className
       )}
     >

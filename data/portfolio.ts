@@ -4,7 +4,7 @@ export type FeaturedProject = {
   name: string;
   summary: string;
   category: string;
-  status: 'ready' | 'pending';
+  status: 'ready';
   size: ProjectRecordSize;
   image?: string;
   liveUrl?: string;
@@ -33,11 +33,11 @@ export type ContactLink = {
 export const profile = {
   name: 'Pranay Yadav',
   role: 'Full-stack engineer',
-  focus: 'React / Next.js / APIs',
+  focus: 'Product UI / systems / automation',
   location: 'India',
-  headline: 'Selected work and field notes.',
+  headline: 'Interfaces, systems, and practical product work.',
   intro:
-    'A visual dossier of interfaces, systems, and notes from building practical web products with React, Next.js, TypeScript, and backend APIs.',
+    'I build dependable web products across frontend, backend, and automation layers, with a focus on clear interfaces, thoughtful interaction design, and systems that are easy to operate.',
   resumeUrl:
     process.env.NEXT_PUBLIC_RESUME_URL ??
     'https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link',
@@ -49,50 +49,60 @@ export const featuredProjects: FeaturedProject[] = [
   {
     name: 'Devkit',
     summary:
-      'Developer tooling project. Use this record for workflow screenshots, CLI/UI states, or before-and-after process notes.',
+      'A private TypeScript toolkit for developer workflows, published as a live studio experience for composing practical build utilities and interface patterns.',
     category: 'Developer tooling',
-    status: 'pending',
+    status: 'ready',
     size: 'large',
-    tags: ['Tooling', 'DX'],
+    image: '/devkit-preview.svg',
+    liveUrl: 'https://devkit-studio.vercel.app',
+    tags: ['TypeScript', 'DX', 'Tooling'],
   },
   {
     name: 'Synaptics',
     summary:
-      'Systems/AI project. This record can carry architecture visuals, implementation notes, and technical proof.',
+      'A Python systems project focused on agentic workflows and automation experiments, using small composable routines instead of a heavy product shell.',
     category: 'Systems / AI',
-    status: 'pending',
+    status: 'ready',
     size: 'small',
-    tags: ['Systems', 'AI'],
+    image: '/synaptic-preview.svg',
+    githubUrl: 'https://github.com/gh0sty02/synaptic',
+    tags: ['Python', 'Automation', 'AI'],
   },
   {
     name: 'ConverseX',
-    summary: 'Communication UI and realtime interaction story.',
+    summary:
+      'A Discord-style collaboration app built with Next.js, Socket.io, LiveKit, Prisma, MySQL, UploadThing, Zustand, and Clerk authentication.',
     category: 'Realtime UX',
     status: 'ready',
     size: 'small',
     image: '/conversex.png',
+    liveUrl: 'https://conversex.onrender.com/',
     githubUrl: 'https://github.com/gh0sty02/ConverseX',
-    tags: ['Realtime', 'Messaging'],
+    tags: ['Next.js', 'Socket.io', 'LiveKit'],
   },
   {
     name: 'Flowify',
-    summary: 'Workflow clarity, dashboard structure, and product decisions.',
+    summary:
+      'A Trello-inspired project management app built with Next.js, Shadcn UI, Tailwind, Prisma, Stripe, and MySQL for board-based workflows.',
     category: 'Workflow',
     status: 'ready',
     size: 'large',
     image: '/flowify.png',
+    liveUrl: 'https://flowify.vercel.app',
     githubUrl: 'https://github.com/gh0sty02/Flowify',
-    tags: ['Workflow', 'Next.js'],
+    tags: ['Next.js', 'Prisma', 'Stripe'],
   },
   {
     name: 'Stonkify',
-    summary: 'Finance/data UI. Good place to show density, charts, and data handling.',
-    category: 'Finance / Data UI',
+    summary:
+      'An e-commerce application built with TypeScript, Next.js, MongoDB, Express, NextAuth, and RTK Query, with a data-heavy product browsing flow.',
+    category: 'Commerce / Data UI',
     status: 'ready',
     size: 'large',
     image: '/stonkify.jpg',
+    liveUrl: 'https://stonkify.vercel.app/',
     githubUrl: 'https://github.com/gh0sty02/Stonkify',
-    tags: ['Finance', 'Data UI'],
+    tags: ['Next.js', 'MongoDB', 'RTK Query'],
   },
 ];
 
@@ -100,17 +110,17 @@ export const infoPanels: InfoPanel[] = [
   {
     title: 'About',
     body:
-      'I like interfaces with personality, but I care most when the system underneath is understandable and dependable.',
+      'I care about product surfaces that feel clear, fast, and a little memorable. The best work here pairs expressive UI with implementation that stays understandable under pressure.',
   },
   {
     title: 'Stack',
     body:
-      'React, Next.js, TypeScript, Tailwind, APIs, backend services, accessibility, performance, and careful interaction design.',
+      'React, Next.js, TypeScript, Tailwind, Node.js, backend APIs, automation tooling, accessibility, performance, and careful interaction design.',
   },
   {
     title: 'Experience',
     body:
-      'Senior Software Engineer at Dentsu, previously Frontend Developer at Netskope. Keep this section brief and impact-led.',
+      'Senior Software Engineer at Dentsu, previously Frontend Developer at Netskope. I work across UI architecture, product delivery, and maintainable frontend systems.',
   },
 ];
 
@@ -119,25 +129,25 @@ export const writingLinks: WritingLink[] = [
     title: 'Hashnode',
     platform: 'Hashnode',
     url: 'https://pranayyadav.hashnode.dev/',
-    body: 'Technical writing and notes.',
+    body: 'Technical writing on engineering notes, implementation tradeoffs, and experiments worth keeping public.',
   },
   {
     title: 'LinkedIn',
     platform: 'LinkedIn',
     url: 'https://www.linkedin.com/in/pranayyadav02/',
-    body: 'Professional updates and public posts.',
+    body: 'Professional updates, project context, and career notes beyond the codebase.',
   },
   {
-    title: 'Fallback',
+    title: 'Archive',
     platform: 'Fallback',
-    body: 'Curated writing links if public feeds are unreliable.',
+    body: 'A curated writing feed will sit here once the public post sources are wired into the portfolio.',
   },
 ];
 
 export const contactLinks: ContactLink[] = [
   {
     label: 'Email',
-    detail: 'pending',
+    detail: 'available on request',
     href: profile.email ? `mailto:${profile.email}` : undefined,
   },
   {
