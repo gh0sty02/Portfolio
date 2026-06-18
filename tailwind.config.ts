@@ -42,6 +42,14 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        dossier: {
+          bg: '#f6f6f1',
+          ink: '#0e0e0c',
+          muted: '#66665f',
+          line: '#d9d9ce',
+          paper: '#ffffff',
+          accent: '#214cff',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -52,6 +60,8 @@ const config: Config = {
         poppins: ['var(--font-poppins)', 'sans-serif'],
         roboto: ['var(--font-roboto-mono)', 'monospace'],
         russo: ['var(--font-russo-one)', 'cursive'],
+        'dossier-heading': ['var(--font-dossier-heading)', 'sans-serif'],
+        'dossier-mono': ['var(--font-dossier-mono)', 'monospace'],
       },
       container: {
         center: true,
