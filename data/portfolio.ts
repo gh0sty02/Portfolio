@@ -31,16 +31,9 @@ export type ContactLink = {
   href?: string;
 };
 
-export type Metric = {
-  label: string;
-  value: string;
-};
-
 export type ExperienceRecord = {
-  company: string;
-  role: string;
-  location: string;
-  period: string;
+  title: string;
+  scope: string;
   summary: string;
   highlights: string[];
 };
@@ -58,20 +51,13 @@ export const profile = {
   location: 'Pune, India',
   headline: 'Interfaces, systems, and practical product work.',
   intro:
-    'Senior full-stack engineer with 4+ years building scalable, high-performance web applications across React, TypeScript, Next.js, NestJS, GraphQL, and production automation.',
+    'Senior full-stack engineer building scalable, high-performance web applications across React, TypeScript, Next.js, NestJS, GraphQL, and production automation.',
   resumeUrl:
     process.env.NEXT_PUBLIC_RESUME_URL ??
     'https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link',
   email: 'pranayyadav08@gmail.com',
   availability: '',
 };
-
-export const metrics: Metric[] = [
-  { label: 'Experience', value: '4+ years' },
-  { label: 'Clients supported', value: '400+' },
-  { label: 'Onboarding cut', value: '45%' },
-  { label: 'Dev cycles reduced', value: '60%' },
-];
 
 export const featuredProjects: FeaturedProject[] = [
   {
@@ -146,39 +132,47 @@ export const infoPanels: InfoPanel[] = [
       'I have led small engineering teams, preserved backward compatibility in mature codebases, shipped under SLA pressure, and built test practices around Jest, React Testing Library, Playwright, and TDD.',
   },
   {
-    title: 'Education',
+    title: 'Principles',
     body:
-      'Bachelor of Engineering in Computer Science from Atharva College of Engineering, Mumbai University.',
+      'Keep interfaces clear, make data contracts explicit, test the risky paths, and leave systems easier to operate than they were before.',
   },
 ];
 
 export const experienceRecords: ExperienceRecord[] = [
   {
-    company: 'Dentsu',
-    role: 'Senior Software Engineer',
-    location: 'Pune, India',
-    period: 'Aug 2024 - Present',
+    title: 'Product systems',
+    scope: 'Frontend + backend contracts',
     summary:
-      'Leading product engineering across React, NestJS/CQRS, GraphQL, Apollo Client, testing, and AI-assisted delivery.',
+      'Building self-serve product workflows that replace brittle configuration paths with clear validation, safer editing, and maintainable domain contracts.',
     highlights: [
-      'Led 4 engineers to ship Definitions Manager across 400+ clients, cutting onboarding time 45%.',
-      'Built a human-in-the-loop AI coding agent that outputs code, unit tests, and Playwright E2E tests, reducing development cycles 60%.',
-      'Migrated 5+ clients from REST to GraphQL + Apollo Client and improved dashboard performance 40%.',
-      'Resolved critical production bugs under live SLA pressure, recovering 12 hours of client downtime.',
+      'Self-serve validation and configuration flows.',
+      'GraphQL and Apollo Client migration work.',
+      'Backward-compatible changes in mature codebases.',
+      'Production debugging under live constraints.',
     ],
   },
   {
-    company: 'Netskope',
-    role: 'Frontend Developer',
-    location: 'Remote',
-    period: 'Jun 2022 - Jul 2024',
+    title: 'Frontend infrastructure',
+    scope: 'Dashboards + support tooling',
     summary:
-      'Built enterprise dashboards and high-traffic support tooling with React, TypeScript, D3.js, Web Workers, and accessibility-first UI.',
+      'Creating responsive, accessible, data-heavy interfaces with attention to performance, cross-browser reliability, and diagnostic clarity.',
     highlights: [
-      'Built responsive enterprise dashboards for 100+ users and cut diagnostic time 50%.',
-      'Architected a web portal for 300+ clients, reducing troubleshooting time 65%.',
-      'Built a multi-threaded HAR sanitizer with Web Workers to process 100MB+ files 50% faster.',
-      'Modernized legacy jQuery into CSS3/ES6+ with Webpack, cutting bundle size 30% and load time 35%.',
+      'Enterprise dashboards with React, TypeScript, and D3.js.',
+      'High-traffic support portals and troubleshooting flows.',
+      'Web Worker processing for large client-side files.',
+      'Legacy modernization with CSS3, ES6+, and Webpack.',
+    ],
+  },
+  {
+    title: 'Automation and quality',
+    scope: 'AI workflows + test coverage',
+    summary:
+      'Using automation where it reduces repeated engineering effort, while keeping review, tests, and human judgment in the loop.',
+    highlights: [
+      'Human-in-the-loop coding agent workflows.',
+      'Jest and React Testing Library for unit coverage.',
+      'Playwright for browser-level confidence.',
+      'Peer review and TDD practices around risky changes.',
     ],
   },
 ];
@@ -191,7 +185,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Frontend',
-    featured: ['React', 'Next.js', 'Vue.js', 'D3.js', 'Tailwind'],
+    featured: ['React', 'Next.js', 'D3.js', 'Tailwind'],
     all: [
       'React.js',
       'Next.js',
@@ -209,7 +203,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Backend & Data',
-    featured: ['Node.js', 'NestJS', 'GraphQL', 'Prisma', 'PostgreSQL'],
+    featured: ['Node.js', 'NestJS', 'GraphQL', 'Prisma'],
     all: [
       'Node.js',
       'NestJS',
@@ -226,7 +220,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Platform & Tooling',
-    featured: ['Docker', 'GitHub Actions', 'Webpack', 'Web Workers', 'CI/CD'],
+    featured: ['Docker', 'GitHub Actions', 'Web Workers', 'CI/CD'],
     all: [
       'Docker',
       'Git',

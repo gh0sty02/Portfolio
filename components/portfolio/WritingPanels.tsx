@@ -27,7 +27,6 @@ export function WritingPanels() {
           initial: { opacity: 0, y: 22 },
           transition: { duration: 0.45, ease: 'easeOut' as const },
           viewport: { once: true, margin: '-90px' },
-          whileHover: { y: -4 },
           whileInView: { opacity: 1, y: 0 },
         };
 

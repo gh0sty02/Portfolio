@@ -23,7 +23,6 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
       initial={{ opacity: 0, y: 28 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       viewport={{ once: true, margin: '-90px' }}
-      whileHover={{ y: -6 }}
       whileInView={{ opacity: 1, y: 0 }}
     >
       <div className="flex min-h-full flex-col justify-between gap-6">

@@ -5,6 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  html,
+  body,
+  #__next {
+    min-height: 100%;
   }
 
   :root {
@@ -67,6 +74,7 @@
   }
   body {
     @apply bg-portfolio-bg text-foreground;
+    overflow-x: hidden;
   }
 
   h1,
@@ -102,40 +110,6 @@
       transition-duration: 0.01ms !important;
     }
   }
-}
-
-@layer utilities {
-  @keyframes portfolio-reveal {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .portfolio-reveal {
-    animation: portfolio-reveal 560ms ease-out both;
-  }
-}
-
-/* Preserved Custom Styles from Original */
-
-/* Custom Scrollbar */
-body::-webkit-scrollbar {
-  width: 0.4rem;
-}
-
-body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px #1a202c;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: #38a169;
-  outline: 1px solid slategrey;
 }
 
 /* Logo Hover Effects */

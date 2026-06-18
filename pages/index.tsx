@@ -4,7 +4,6 @@ import { PortfolioFrame } from '@/components/portfolio/PortfolioFrame';
 import { PortfolioNav } from '@/components/portfolio/PortfolioNav';
 import { HeroPortfolio } from '@/components/portfolio/HeroPortfolio';
 import { InfoPanels } from '@/components/portfolio/InfoPanels';
-import { MetricsStrip } from '@/components/portfolio/MetricsStrip';
 import { ProjectGallery } from '@/components/portfolio/ProjectGallery';
 import { SectionHeader } from '@/components/portfolio/SectionHeader';
 import { SkillsStack } from '@/components/portfolio/SkillsStack';
@@ -34,7 +33,6 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
       </Head>
 
       <HeroPortfolio />
-      <MetricsStrip />
 
       <main>
         <section id="work" className="border-b border-portfolio-line">

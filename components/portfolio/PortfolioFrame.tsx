@@ -10,7 +10,7 @@ export function PortfolioFrame({ children, className }: PortfolioFrameProps) {
   return (
     <div
       className={cn(
-        'mx-auto min-h-screen w-full max-w-[1440px] overflow-x-hidden border-x border-portfolio-line bg-portfolio-bg text-portfolio-ink',
+        'mx-auto min-h-screen w-full max-w-[1440px] border-x border-portfolio-line bg-portfolio-bg text-portfolio-ink',
         className
       )}
     >
