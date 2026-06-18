@@ -1,8 +1,11 @@
+import { ContactLinks } from '@/components/dossier/ContactLinks';
 import { DossierFrame } from '@/components/dossier/DossierFrame';
 import { DossierNav } from '@/components/dossier/DossierNav';
 import { HeroDossier } from '@/components/dossier/HeroDossier';
+import { InfoPanels } from '@/components/dossier/InfoPanels';
 import { ProjectGallery } from '@/components/dossier/ProjectGallery';
 import { SectionHeader } from '@/components/dossier/SectionHeader';
+import { WritingPanels } from '@/components/dossier/WritingPanels';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import type { ReactElement } from 'react';
@@ -36,25 +39,19 @@ const Home: NextPage & { getLayout?: (page: ReactElement) => ReactElement } = ()
 
         <section id="info" className="border-b border-dossier-line">
           <SectionHeader eyebrow="02 / Info" title="Short bio, stack, and experience." />
-          <div className="p-4 font-dossier-mono text-sm leading-7 text-dossier-muted">
-            Info panels land in Phase 6.
-          </div>
+          <InfoPanels />
         </section>
 
         <section id="writing" className="border-b border-dossier-line">
           <SectionHeader eyebrow="03 / Writing" title="Writing and public trail." />
-          <div className="p-4 font-dossier-mono text-sm leading-7 text-dossier-muted">
-            Writing links land in Phase 6.
-          </div>
+          <WritingPanels />
         </section>
 
         <section id="contact" className="grid grid-cols-1 border-b border-dossier-line md:grid-cols-[1fr_380px]">
           <h2 className="border-b border-dossier-line p-[clamp(24px,5vw,54px)] font-dossier-heading text-[clamp(3rem,8vw,8rem)] font-extrabold leading-[0.94] text-dossier-ink md:border-b-0 md:border-r">
             Reach out.
           </h2>
-          <div className="grid content-end p-4 font-dossier-mono text-sm text-dossier-muted">
-            Contact links land in Phase 6.
-          </div>
+          <ContactLinks />
         </section>
       </main>
     </>
