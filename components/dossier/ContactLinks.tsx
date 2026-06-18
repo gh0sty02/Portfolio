@@ -2,7 +2,7 @@ import { contactLinks } from 'data/portfolio';
 
 export function ContactLinks() {
   return (
-    <div className="grid content-end p-4 font-dossier-mono text-[13px]">
+    <div className="dossier-reveal grid content-end p-4 font-dossier-mono text-[13px]">
       {contactLinks.map((link) => {
         const content = (
           <>

@@ -7,7 +7,7 @@ type SectionHeaderProps = {
 
 export function SectionHeader({ eyebrow, title }: SectionHeaderProps) {
   return (
-    <div className="grid grid-cols-1 gap-6 border-b border-dossier-line px-4 py-5 md:grid-cols-[220px_1fr]">
+    <div className="dossier-reveal grid grid-cols-1 gap-6 border-b border-dossier-line px-4 py-5 md:grid-cols-[220px_1fr]">
       <p className="font-dossier-mono text-xs font-bold uppercase text-dossier-accent">
         {eyebrow}
       </p>

@@ -4,7 +4,7 @@ export function HeroDossier() {
   return (
     <section
       id="top"
-      className="grid min-h-[calc(100vh-57px)] grid-cols-1 border-b border-dossier-line md:grid-cols-[minmax(0,1fr)_380px]"
+      className="dossier-reveal grid min-h-[calc(100vh-57px)] grid-cols-1 border-b border-dossier-line md:grid-cols-[minmax(0,1fr)_380px]"
     >
       <div className="flex flex-col justify-between gap-12 border-b border-dossier-line p-[clamp(24px,5vw,54px)] md:border-b-0 md:border-r">
         <h1 className="max-w-[820px] font-dossier-heading text-[clamp(4rem,11vw,11rem)] font-extrabold leading-[0.94] text-dossier-ink">

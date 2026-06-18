@@ -15,7 +15,7 @@ export function ProjectRecord({ project }: ProjectRecordProps) {
   return (
     <article
       className={cn(
-        'group min-h-[430px] border-b border-r border-dossier-line bg-dossier-paper p-4 transition-colors hover:bg-dossier-bg',
+        'dossier-reveal group min-h-[430px] border-b border-r border-dossier-line bg-dossier-paper p-4 transition-colors hover:bg-dossier-bg',
         project.size === 'large' ? 'md:col-span-7' : 'md:col-span-5'
       )}
     >

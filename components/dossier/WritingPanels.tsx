@@ -14,7 +14,7 @@ export function WritingPanels() {
         );
 
         const className =
-          'min-h-[240px] border-b border-r border-dossier-line p-4 font-dossier-mono text-sm leading-[1.7] text-dossier-muted transition-colors hover:bg-dossier-paper hover:text-dossier-ink';
+          'dossier-reveal min-h-[240px] border-b border-r border-dossier-line p-4 font-dossier-mono text-sm leading-[1.7] text-dossier-muted transition-colors hover:bg-dossier-paper hover:text-dossier-ink focus-visible:bg-dossier-paper focus-visible:text-dossier-ink';
 
         if (!item.url) {
           return (
