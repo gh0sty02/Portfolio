@@ -1,71 +1,48 @@
-import {
-  Box,
-  ButtonGroup,
-  Container,
-  Divider,
-  IconButton,
-  Link,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import React from "react";
-import Logo from "components/utils/Logo";
-import { FaGithub } from "react-icons/fa";
-import { socials } from "data/Socials";
+import { Container } from '@/components/ui/container';
+import { Divider } from '@/components/ui/divider';
+import React from 'react';
+import Logo from 'components/utils/Logo';
+import { FaGithub } from 'react-icons/fa';
+import { socials } from 'data/Socials';
 
 const Footer = () => {
   return (
-    <Box
-      as="footer"
-      role="contentinfo"
-      mx="auto"
-      maxW="7xl"
-      py="12"
-      px={{ base: "4", md: "8" }}
-    >
+    <footer role="contentinfo" className="mx-auto max-w-7xl py-12 px-4 md:px-8">
       <Container maxW="container.lg">
-        <Stack
-          direction="row"
-          spacing="4"
-          align="center"
-          justify="space-between"
-          pb="5"
-        >
+        <div className="flex flex-row items-center justify-between space-x-4 pb-5">
           <Logo />
-          <ButtonGroup variant="ghost">
+          <div className="flex space-x-2">
             {socials.map((social) => (
-              <IconButton
-                _hover={{ color: "green.500" }}
-                icon={social.icon}
-                as="a"
+              <a
                 href={social.href}
                 aria-label={social.name}
                 key={social.name}
-              />
+                className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-accent transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {social.icon}
+              </a>
             ))}
-          </ButtonGroup>
-        </Stack>
-        <Divider pt={2} />
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          pt="5"
-        >
-          <Text fontSize="md">
-            Pranay Yadav &copy; {new Date().getFullYear()}{" "}
-          </Text>
-          <IconButton
-            as={Link}
-            isExternal
-            rounded="md"
-            icon={<FaGithub fontSize="18px" />}
-            aria-label="Github"
+          </div>
+        </div>
+        <Divider my={2} />
+        <div className="flex flex-row items-center justify-between pt-5">
+          <p className="text-base">
+            Pranay Yadav &copy; {new Date().getFullYear()}{' '}
+          </p>
+          <a
             href="https://github.com/gh0sty02/"
-          />
-        </Stack>
+            aria-label="Github"
+            className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-accent transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub fontSize="18px" />
+          </a>
+        </div>
       </Container>
-    </Box>
+    </footer>
   );
 };
 

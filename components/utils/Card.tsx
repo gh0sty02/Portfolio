@@ -1,14 +1,9 @@
-import {
-  Box,
-  Heading,
-  IconButton,
-  LinkOverlay,
-  LinkBox,
-  useColorModeValue,
-  Flex,
-} from "@chakra-ui/react";
-import { FC, ReactElement } from "react";
-import Paragraph from "./Paragraph";
+'use client';
+
+import { Heading } from '@/components/ui/heading';
+import { useTheme } from '@/hooks/use-theme';
+import { FC, ReactElement } from 'react';
+import Paragraph from './Paragraph';
 
 interface ITool {
   url: string;
@@ -18,43 +13,30 @@ interface ITool {
 }
 
 const Card: FC<{ tool: ITool }> = ({ tool }) => {
+  const { theme } = useTheme();
+  const borderColor = theme === 'light' ? 'border-gray-300' : 'border-gray-700';
+
   return (
-    <LinkBox as="article">
-      <Flex
-        w="100%"
-        borderColor={useColorModeValue("gray.300", "gray.700")}
-        borderRadius={5}
-        borderWidth="1px"
-        role="group"
-        _hover={{
-          borderColor: "green.500",
-        }}
-        p="4"
-        transition="0.5s"
-        cursor="pointer"
+    <article>
+      <a
+        href={tool.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`w-full flex items-start ${borderColor} rounded-md border p-4 transition-all duration-500 cursor-pointer group hover:border-green-500`}
       >
-        <IconButton
-          mr={3}
-          href={tool.url}
-          as="a"
-          target="_blank"
-          _groupHover={{ color: "green.500" }}
-          icon={tool.icon}
-          aria-label={tool.name}
-          rel="noopener"
-        />
-        <Box>
-          <LinkOverlay rel="noopener" isExternal href={tool.url}>
-            <Heading as="h2" size="sm">
-              {tool.name}
-            </Heading>
-            <Paragraph props={{ mt: "1", fontSize: "sm" }}>
-              {tool.description}
-            </Paragraph>
-          </LinkOverlay>
-        </Box>
-      </Flex>
-    </LinkBox>
+        <div className="mr-3 text-2xl group-hover:text-green-500 transition-colors">
+          {tool.icon}
+        </div>
+        <div>
+          <Heading as="h2" className="text-sm">
+            {tool.name}
+          </Heading>
+          <Paragraph props={{ mt: '1', fontSize: 'sm' }}>
+            {tool.description}
+          </Paragraph>
+        </div>
+      </a>
+    </article>
   );
 };
 

@@ -1,6 +1,7 @@
 import { DURATIONS, easing } from "config/animations";
+import type { Variants } from "framer-motion";
 
-export const variants = {
+export const variants: Variants = {
   normal: {
     opacity: 0.85,
   },

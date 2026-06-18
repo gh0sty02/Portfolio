@@ -1,13 +1,8 @@
-import {
-  useColorModeValue,
-  Heading,
-  Divider,
-  SimpleGrid,
-  List,
-  ListItem,
-  ListIcon,
-} from "@chakra-ui/react";
-import { Skill } from "data/Skills";
+'use client';
+
+import { Divider } from '@/components/ui/divider';
+import { useTheme } from '@/hooks/use-theme';
+import { Skill } from 'data/Skills';
 
 const SkillList = ({
   title,
@@ -16,47 +11,46 @@ const SkillList = ({
   title: string;
   columns: Skill[][];
 }) => {
-  const emphasis = useColorModeValue("teal.500", "cyan.200");
+  const { theme } = useTheme();
+  const emphasisColor = theme === 'light' ? 'text-teal-500' : 'text-cyan-200';
   const [colOne, colTwo = []] = columns;
+
   return (
     <>
-      <Heading as="div" size="sm" paddingBottom={1} variant="description">
+      <div className="text-sm pb-1 font-bold">
         {title}
-      </Heading>
-      <Divider marginBottom={4} />
-      <SimpleGrid
-        fontFamily="Poppins"
-        columns={2}
-        spacing={4}
-        paddingBottom={6}
-      >
-        <List spacing={3}>
-          {colOne.map((item) => (
-            <ListItem
-              key={item.name}
-              fontSize="small"
-              display="flex"
-              alignItems="center"
-            >
-              <ListIcon as={item.icon} color={emphasis} fontSize="2em" />
-              {item.name}
-            </ListItem>
-          ))}
-        </List>
-        <List spacing={3}>
-          {colTwo.map((item) => (
-            <ListItem
-              key={item.name}
-              fontSize="small"
-              display="flex"
-              alignItems="center"
-            >
-              <ListIcon as={item.icon} color={emphasis} fontSize="2em" />
-              {item.name}
-            </ListItem>
-          ))}
-        </List>
-      </SimpleGrid>
+      </div>
+      <Divider className="mb-4" />
+      <div className="grid grid-cols-2 gap-4 pb-6 font-poppins">
+        <ul className="space-y-3">
+          {colOne.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <li
+                key={item.name}
+                className="text-sm flex items-center"
+              >
+                <IconComponent className={`${emphasisColor} text-2xl mr-2`} />
+                {item.name}
+              </li>
+            );
+          })}
+        </ul>
+        <ul className="space-y-3">
+          {colTwo.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <li
+                key={item.name}
+                className="text-sm flex items-center"
+              >
+                <IconComponent className={`${emphasisColor} text-2xl mr-2`} />
+                {item.name}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </>
   );
 };

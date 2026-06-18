@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranay Yadav | Generative Lab Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #070b1f;
+        --ink: #f4f1ff;
+        --muted: #a9a3c6;
+        --pink: #ff5bbd;
+        --cyan: #65e7ff;
+        --yellow: #ffe86b;
+        --panel: rgba(244, 241, 255, 0.08);
+        --line: rgba(244, 241, 255, 0.18);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Space Grotesk", system-ui, sans-serif; overflow-x: hidden; }
+      a { color: inherit; text-decoration: none; }
+      :focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+      #field { position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%; }
+      .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 22px 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .nav nav { display: flex; flex-wrap: wrap; gap: 16px; }
+      .nav a:hover { color: var(--cyan); }
+
+      .hero {
+        min-height: calc(100vh - 68px);
+        display: grid;
+        align-content: center;
+        padding: 60px 0 90px;
+      }
+      .badge {
+        width: max-content;
+        padding: 10px 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--panel);
+        color: var(--cyan);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        backdrop-filter: blur(12px);
+      }
+      h1, h2, h3 { margin: 0; font-family: Unbounded, system-ui, sans-serif; line-height: 0.94; }
+      h1 { margin-top: 26px; max-width: 1040px; font-size: clamp(3.8rem, 10vw, 10.5rem); }
+      .hero p { max-width: 700px; color: var(--muted); font-size: clamp(1.05rem, 1.45vw, 1.35rem); line-height: 1.65; }
+
+      .dock {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 14px;
+        margin-top: 42px;
+      }
+      .dock a, .dock span {
+        min-height: 120px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+        color: var(--muted);
+        font-weight: 800;
+      }
+      .dock b { display: block; margin-bottom: 8px; color: var(--ink); font-family: Unbounded, sans-serif; font-size: 22px; }
+
+      .section { padding: clamp(58px, 9vw, 110px) 0; }
+      .section-head { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 20px; color: var(--muted); font-weight: 800; text-transform: uppercase; }
+      .projects {
+        display: grid;
+        gap: 10px;
+      }
+      .project {
+        display: grid;
+        grid-template-columns: 220px 1fr 190px;
+        gap: 24px;
+        align-items: center;
+        min-height: 140px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+      }
+      .project h2 { font-size: clamp(2rem, 4.4vw, 4.8rem); }
+      .project p { color: var(--muted); line-height: 1.55; }
+      .type { color: var(--cyan); font-size: 13px; font-weight: 900; text-transform: uppercase; }
+      .status { justify-self: end; color: var(--yellow); font-size: 13px; font-weight: 900; text-transform: uppercase; }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 18px;
+      }
+      .contact h2 {
+        padding: clamp(22px, 5vw, 50px);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: linear-gradient(135deg, rgba(255, 91, 189, 0.22), rgba(101, 231, 255, 0.12));
+        font-size: clamp(3rem, 8vw, 8rem);
+      }
+      .links { display: grid; gap: 10px; align-content: end; }
+      .links a {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--panel);
+        color: var(--muted);
+        font-weight: 800;
+      }
+
+      @media (max-width: 900px) {
+        .dock, .project, .contact { grid-template-columns: 1fr; }
+        .status { justify-self: start; }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="field" aria-hidden="true"></canvas>
+    <header class="wrap">
+      <div class="nav">
+        <a href="#">Pranay Yadav</a>
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+          <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </div>
+      <section class="hero">
+        <span class="badge">Interactive lab wall</span>
+        <h1>Code, writing, and strange little systems.</h1>
+        <p>
+          A more experimental portfolio direction. The background is generative,
+          the content stays clear, and the whole page feels personal without
+          becoming another rectangular project grid.
+        </p>
+        <div class="dock">
+          <span><b>Build</b>React, Next.js, TypeScript, APIs.</span>
+          <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer"><b>Write</b>Hashnode technical notes.</a>
+          <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer"><b>Trace</b>LinkedIn public trail.</a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="work" class="section wrap">
+        <div class="section-head"><span>Selected work</span><span>Five experiments</span></div>
+        <div class="projects">
+          <article class="project"><span class="type">Tooling</span><div><h2>Devkit</h2><p>Developer workflow project. Details pending.</p></div><span class="status">Pending</span></article>
+          <article class="project"><span class="type">Systems</span><div><h2>Synaptics</h2><p>AI/systems project. Architecture proof pending.</p></div><span class="status">Pending</span></article>
+          <article class="project"><span class="type">Realtime</span><div><h2>ConverseX</h2><p>Communication and interaction design.</p></div><span class="status">Preview</span></article>
+          <article class="project"><span class="type">Workflow</span><div><h2>Flowify</h2><p>Workflow clarity and dashboard decisions.</p></div><span class="status">Preview</span></article>
+          <article class="project"><span class="type">Data UI</span><div><h2>Stonkify</h2><p>Finance/data UI and information density.</p></div><span class="status">Preview</span></article>
+        </div>
+      </section>
+
+      <section id="contact" class="section wrap contact">
+        <h2>Send a signal.</h2>
+        <div class="links">
+          <a href="mailto:hello@example.com">Email <span>pending</span></a>
+          <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn <span>profile</span></a>
+          <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode <span>writing</span></a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const canvas = document.getElementById("field");
+      const ctx = canvas.getContext("2d");
+      let width = 0;
+      let height = 0;
+      let points = [];
+      const mouse = { x: 0, y: 0 };
+
+      function resize() {
+        width = canvas.width = window.innerWidth * devicePixelRatio;
+        height = canvas.height = window.innerHeight * devicePixelRatio;
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+        points = Array.from({ length: Math.min(90, Math.floor(window.innerWidth / 14)) }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.35 * devicePixelRatio,
+          vy: (Math.random() - 0.5) * 0.35 * devicePixelRatio
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = "#070b1f";
+        ctx.fillRect(0, 0, width, height);
+        for (const p of points) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+        }
+        for (let i = 0; i < points.length; i++) {
+          for (let j = i + 1; j < points.length; j++) {
+            const a = points[i];
+            const b = points[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d = Math.hypot(dx, dy);
+            if (d < 150 * devicePixelRatio) {
+              ctx.strokeStyle = `rgba(101, 231, 255, ${0.14 * (1 - d / (150 * devicePixelRatio))})`;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+        }
+        for (const p of points) {
+          const md = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+          ctx.fillStyle = md < 160 * devicePixelRatio ? "#ff5bbd" : "#65e7ff";
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, md < 160 * devicePixelRatio ? 3.4 : 2.1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("resize", resize);
+      window.addEventListener("pointermove", (event) => {
+        mouse.x = event.clientX * devicePixelRatio;
+        mouse.y = event.clientY * devicePixelRatio;
+      });
+      resize();
+      draw();
+    </script>
+  </body>
+</html>

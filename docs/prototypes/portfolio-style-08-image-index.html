@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranay Yadav | Image Index Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #fbfbf6;
+        --ink: #101010;
+        --muted: #6a6a61;
+        --line: #d6d6ca;
+        --blue: #233cff;
+        --tan: #e7dcc6;
+        --max: 1240px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      :focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+      .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+      h1, h2, h3 { margin: 0; font-family: "Clash Display", Archivo, system-ui, sans-serif; line-height: 0.92; }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 251, 246, 0.82);
+        backdrop-filter: blur(14px);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .nav nav { display: flex; flex-wrap: wrap; gap: 16px; color: var(--muted); }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 0.78fr;
+        gap: 18px;
+        padding: clamp(50px, 9vw, 112px) 0 18px;
+      }
+      .hero h1 { font-size: clamp(4rem, 12vw, 12rem); }
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 560px;
+        padding-right: 24px;
+      }
+      .hero-text p {
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .hero-image {
+        min-height: 560px;
+        overflow: hidden;
+        border-radius: 26px;
+        background:
+          radial-gradient(circle at 60% 28%, rgba(35, 60, 255, 0.25), transparent 26%),
+          linear-gradient(135deg, #efe7d4, #ffffff);
+        display: grid;
+        place-items: end start;
+        padding: 24px;
+      }
+      .hero-image span {
+        max-width: 310px;
+        color: var(--muted);
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .section { padding: clamp(58px, 10vw, 120px) 0; border-top: 1px solid var(--line); }
+      .section-head { display: grid; grid-template-columns: 180px 1fr; gap: 28px; margin-bottom: 28px; }
+      .kicker { color: var(--blue); font-size: 13px; font-weight: 900; text-transform: uppercase; }
+      .section h2 { max-width: 860px; font-size: clamp(2.8rem, 6.5vw, 7rem); }
+
+      .image-list { display: grid; gap: 18px; }
+      .record {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        min-height: 420px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: #ffffff;
+      }
+      .record:nth-child(even) { grid-template-columns: 1.2fr 0.8fr; }
+      .record:nth-child(even) .record-copy { order: 2; }
+      .record-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(24px, 4vw, 44px);
+      }
+      .record h3 { font-size: clamp(2.7rem, 6vw, 6.4rem); }
+      .record p { max-width: 540px; color: var(--muted); line-height: 1.6; }
+      .record-meta { color: var(--blue); font-size: 13px; font-weight: 900; text-transform: uppercase; }
+      .record-shot {
+        display: grid;
+        place-items: center;
+        min-height: 320px;
+        background: var(--tan);
+        color: var(--muted);
+        font-weight: 900;
+      }
+      .record-shot img { width: 100%; height: 100%; object-fit: cover; }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .info {
+        min-height: 230px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: #ffffff;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .info h3 { margin-bottom: 16px; color: var(--ink); font-size: 30px; }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        align-items: end;
+      }
+      .contact h2 { font-size: clamp(3rem, 8vw, 8.5rem); }
+      .links { display: grid; border-top: 1px solid var(--ink); }
+      .links a { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 800; }
+      .links span { color: var(--muted); font-weight: 600; }
+
+      @media (max-width: 900px) {
+        .hero, .section-head, .record, .record:nth-child(even), .info-grid, .contact { grid-template-columns: 1fr; }
+        .record:nth-child(even) .record-copy { order: 0; }
+        .hero-text, .hero-image { min-height: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap">
+      <div class="nav">
+        <a href="#">Pranay Yadav</a>
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#info">Info</a>
+          <a href="#contact">Contact</a>
+          <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </div>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Interface archive.</h1>
+          <p>A cleaner image-led cousin of style 3. It keeps the dossier feel, but uses bigger visual records and a softer color system.</p>
+        </div>
+        <div class="hero-image"><span>Use a personal photo, workspace image, or abstract mark here. Not a product hero illustration.</span></div>
+      </section>
+    </header>
+
+    <main>
+      <section id="work" class="section wrap">
+        <div class="section-head">
+          <span class="kicker">01 Work</span>
+          <h2>Visual records with short notes.</h2>
+        </div>
+        <div class="image-list">
+          <article class="record"><div class="record-copy"><span class="record-meta">Developer tooling</span><div><h3>Devkit</h3><p>Workflow and developer experience project. Screenshot pending.</p></div></div><div class="record-shot">Screenshot pending</div></article>
+          <article class="record"><div class="record-copy"><span class="record-meta">Systems / AI</span><div><h3>Synaptics</h3><p>Technical system project. Use architecture visuals when available.</p></div></div><div class="record-shot">Visual pending</div></article>
+          <article class="record"><div class="record-copy"><span class="record-meta">Realtime UX</span><div><h3>ConverseX</h3><p>Communication product and interaction behavior.</p></div></div><div class="record-shot"><img src="/public/conversex.png" alt="ConverseX preview" /></div></article>
+          <article class="record"><div class="record-copy"><span class="record-meta">Workflow</span><div><h3>Flowify</h3><p>Dashboard and workflow clarity.</p></div></div><div class="record-shot"><img src="/public/flowify.png" alt="Flowify preview" /></div></article>
+          <article class="record"><div class="record-copy"><span class="record-meta">Finance / Data</span><div><h3>Stonkify</h3><p>Data UI, density, charts, and information hierarchy.</p></div></div><div class="record-shot"><img src="/public/stonkify.jpg" alt="Stonkify preview" /></div></article>
+        </div>
+      </section>
+
+      <section id="info" class="section wrap">
+        <div class="section-head">
+          <span class="kicker">02 Info</span>
+          <h2>Short personal context.</h2>
+        </div>
+        <div class="info-grid">
+          <article class="info"><h3>About</h3>Playful interfaces, dependable systems.</article>
+          <article class="info"><h3>Stack</h3>React, Next.js, TypeScript, Tailwind, APIs, accessibility.</article>
+          <a class="info" href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer"><h3>Hashnode</h3>Technical writing and notes.</a>
+          <a class="info" href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer"><h3>LinkedIn</h3>Professional trail.</a>
+        </div>
+      </section>
+
+      <section id="contact" class="section wrap contact">
+        <h2>Open a thread.</h2>
+        <div class="links">
+          <a href="mailto:hello@example.com">Email <span>pending</span></a>
+          <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn <span>profile</span></a>
+          <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode <span>writing</span></a>
+          <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume <span>Drive</span></a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

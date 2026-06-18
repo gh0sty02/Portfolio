@@ -1,7 +1,9 @@
-import { memo } from "react";
-import { useDisclosure } from "@chakra-ui/react";
-import TechStack from "components/skills/Stack";
-import SkillSetModal from "components/skills/SkillSetModal";
+'use client';
+
+import { memo } from 'react';
+import { useDisclosure } from '@/hooks/use-disclosure';
+import TechStack from 'components/skills/Stack';
+import SkillSetModal from 'components/skills/SkillSetModal';
 
 const AboutSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

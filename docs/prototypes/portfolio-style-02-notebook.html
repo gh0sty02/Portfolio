@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranay Yadav | Notebook Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fbf8ef;
+        --ink: #15130f;
+        --muted: #6d675d;
+        --line: #d9d1c1;
+        --paper: #fffefa;
+        --accent: #2657ff;
+        --yellow: #ffe66b;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          var(--bg);
+        background-size: 100% 34px;
+        color: var(--ink);
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      .shell {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+        gap: 52px;
+      }
+
+      aside {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 34px 0;
+        border-right: 1px solid var(--line);
+      }
+
+      .monogram {
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        border: 1px solid var(--ink);
+        border-radius: 50%;
+        background: var(--yellow);
+        font-weight: 800;
+      }
+
+      .side-title {
+        margin: 28px 28px 16px 0;
+        font-family: "Instrument Serif", Georgia, serif;
+        font-size: 44px;
+        line-height: 0.98;
+      }
+
+      .side-copy {
+        margin-right: 28px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      nav {
+        display: grid;
+        gap: 10px;
+        margin-top: 36px;
+        margin-right: 28px;
+      }
+
+      nav a {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      nav a:hover {
+        color: var(--ink);
+      }
+
+      main {
+        padding: 34px 0 80px;
+      }
+
+      .entry {
+        margin-bottom: clamp(56px, 9vw, 108px);
+        padding: clamp(24px, 4vw, 42px);
+        border: 1px solid var(--line);
+        background: rgba(255, 254, 250, 0.88);
+      }
+
+      .entry.plain {
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+
+      .date {
+        display: block;
+        margin-bottom: 16px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      h1 {
+        max-width: 760px;
+        font-family: "Instrument Serif", Georgia, serif;
+        font-size: clamp(4.2rem, 11vw, 9.6rem);
+        font-weight: 400;
+      }
+
+      h2 {
+        font-size: clamp(2.3rem, 5vw, 5rem);
+      }
+
+      h3 {
+        font-size: clamp(1.6rem, 3vw, 2.6rem);
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .lead {
+        max-width: 720px;
+        margin-top: 24px;
+        font-size: 20px;
+      }
+
+      .project-notes {
+        display: grid;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .project-note {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 22px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .project-note span {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .project-note p {
+        margin: 10px 0 0;
+      }
+
+      .writing-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .writing-list a {
+        display: block;
+        padding: 18px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        text-decoration: none;
+      }
+
+      .writing-list a:hover h3 {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 5px;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .contact-list a {
+        display: flex;
+        justify-content: space-between;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      @media (max-width: 860px) {
+        .shell {
+          display: block;
+          width: min(var(--max), calc(100% - 28px));
+        }
+
+        aside {
+          position: static;
+          height: auto;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .project-note {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside>
+        <div class="monogram">PY</div>
+        <h2 class="side-title">Notebook portfolio.</h2>
+        <p class="side-copy">
+          A more personal direction: less homepage polish, more field notes,
+          project thinking, and public trail.
+        </p>
+        <nav aria-label="Primary">
+          <a href="#work">Work <span>01</span></a>
+          <a href="#experience">Experience <span>02</span></a>
+          <a href="#writing">Writing <span>03</span></a>
+          <a href="#contact">Contact <span>04</span></a>
+        </nav>
+      </aside>
+
+      <main>
+        <section class="entry plain">
+          <span class="date">Pranay Yadav / Full-stack engineer</span>
+          <h1>I build interfaces, APIs, and the notes that explain why.</h1>
+          <p class="lead">
+            This version treats the portfolio like a working notebook. Projects
+            are presented as entries with context, constraints, and what still
+            needs to be documented.
+          </p>
+        </section>
+
+        <section id="work" class="entry">
+          <span class="date">01 / Selected work</span>
+          <h2>Project notes</h2>
+          <div class="project-notes">
+            <article class="project-note">
+              <span>Devkit</span>
+              <div>
+                <h3>Developer workflow</h3>
+                <p>Placeholder for problem, role, stack, and outcome. This style makes missing content feel like pending notes, not broken cards.</p>
+              </div>
+            </article>
+            <article class="project-note">
+              <span>Synaptics</span>
+              <div>
+                <h3>Systems and AI</h3>
+                <p>Good candidate for a deeper technical explanation once final architecture details are available.</p>
+              </div>
+            </article>
+            <article class="project-note">
+              <span>ConverseX</span>
+              <div>
+                <h3>Realtime communication</h3>
+                <p>Use for interaction design, realtime state, and product decisions.</p>
+              </div>
+            </article>
+            <article class="project-note">
+              <span>Flowify</span>
+              <div>
+                <h3>Workflow clarity</h3>
+                <p>Use for dashboard/process visuals and how the interface helps users move through work.</p>
+              </div>
+            </article>
+            <article class="project-note">
+              <span>Stonkify</span>
+              <div>
+                <h3>Finance/data UI</h3>
+                <p>Use for data handling, chart decisions, and visual hierarchy under information density.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="experience" class="entry">
+          <span class="date">02 / Experience</span>
+          <h2>Work, edited down</h2>
+          <p>
+            Keep experience conversational and evidence-based. Two or three
+            tight entries will feel stronger than a long resume section.
+          </p>
+        </section>
+
+        <section id="writing" class="entry">
+          <span class="date">03 / Writing</span>
+          <h2>Public trail</h2>
+          <div class="writing-list">
+            <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">
+              <h3>Hashnode</h3>
+              <p>Technical writing, longer notes, and things learned while building.</p>
+            </a>
+            <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">
+              <h3>LinkedIn</h3>
+              <p>Professional updates and selected public posts.</p>
+            </a>
+          </div>
+        </section>
+
+        <section id="contact" class="entry">
+          <span class="date">04 / Contact</span>
+          <h2>Links</h2>
+          <div class="contact-list">
+            <a href="mailto:hello@example.com">Email <span>pending</span></a>
+            <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn <span>profile</span></a>
+            <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume <span>Drive</span></a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

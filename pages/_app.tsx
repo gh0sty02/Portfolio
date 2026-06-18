@@ -1,21 +1,31 @@
-import "styles/globals.css";
-import type { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
-import { AnimatePresence } from "framer-motion";
-import theme from "config/theme";
-import Footer from "components/Layout/Footer";
-import Navbar from "components/Layout/Navbar";
+import 'styles/globals.css';
+import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import type { ReactElement, ReactNode } from 'react';
+import { ThemeProvider } from '@/components/theme/theme-provider';
+import Footer from 'components/Layout/Footer';
+import Navbar from 'components/Layout/Navbar';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <AnimatePresence mode="wait">
-      <ChakraProvider theme={theme}>
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout =
+    Component.getLayout ??
+    ((page: ReactElement) => (
+      <>
         <Navbar />
-        <Component {...pageProps} />
+        {page}
         <Footer />
-      </ChakraProvider>
-    </AnimatePresence>
-  );
+      </>
+    ));
+
+  return <ThemeProvider>{getLayout(<Component {...pageProps} />)}</ThemeProvider>;
 }
 
 export default MyApp;

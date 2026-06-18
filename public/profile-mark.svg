@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125" role="img" aria-labelledby="title desc">
+  <title id="title">Pranay Yadav portfolio mark</title>
+  <desc id="desc">An abstract personal mark made from interface panels, code lines, and a blue accent shape.</desc>
+  <rect width="900" height="1125" fill="#ffffff"/>
+  <rect x="54" y="54" width="792" height="1017" fill="#f6f6f1" stroke="#0e0e0c" stroke-width="3"/>
+  <rect x="112" y="132" width="426" height="426" fill="#0e0e0c"/>
+  <rect x="154" y="184" width="258" height="24" fill="#ffffff"/>
+  <rect x="154" y="246" width="312" height="24" fill="#ffffff" opacity="0.78"/>
+  <rect x="154" y="308" width="214" height="24" fill="#ffffff" opacity="0.55"/>
+  <rect x="154" y="370" width="272" height="24" fill="#214cff"/>
+  <circle cx="604" cy="345" r="151" fill="#214cff"/>
+  <path d="M512 654h222v222H512z" fill="#ffffff" stroke="#0e0e0c" stroke-width="3"/>
+  <path d="M552 710h142M552 764h100M552 818h122" stroke="#0e0e0c" stroke-width="18"/>
+  <path d="M140 704h260M140 760h314M140 816h216M140 872h288" stroke="#66665f" stroke-width="18"/>
+  <text x="140" y="978" fill="#0e0e0c" font-family="monospace" font-size="42" font-weight="700">PRANAY / 02</text>
+</svg>

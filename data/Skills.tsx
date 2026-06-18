@@ -14,7 +14,7 @@ import {
   SiExpress,
   SiNestjs,
   SiTailwindcss,
-  SiD3Dotjs,
+  SiD3,
   SiPostgresql,
   SiShadcnui,
   SiJira,
@@ -84,7 +84,7 @@ export const Skills: {
     },
     {
       name: 'D3.Js',
-      icon: SiD3Dotjs,
+      icon: SiD3,
     },
     {
       name: 'Jest',

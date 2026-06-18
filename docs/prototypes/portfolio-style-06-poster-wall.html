@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pranay Yadav | Poster Wall Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #101010;
+        --paper: #f8f2e5;
+        --ink: #151515;
+        --muted: #6f675b;
+        --orange: #ff6f3c;
+        --cyan: #85e6ff;
+        --lime: #d7ff62;
+        --line: #151515;
+        --max: 1220px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--bg); color: var(--paper); font-family: "DM Sans", system-ui, sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      :focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+      .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 0;
+        color: rgba(248, 242, 229, 0.72);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .nav nav { display: flex; flex-wrap: wrap; gap: 16px; }
+      .nav a:hover { color: var(--lime); }
+
+      .hero {
+        min-height: 620px;
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 22px;
+        padding: 28px 0 22px;
+      }
+      .hero-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 590px;
+        padding: clamp(24px, 5vw, 54px);
+        border-radius: 28px;
+        background: var(--paper);
+        color: var(--ink);
+      }
+      h1, h2, h3 { margin: 0; font-family: "Bricolage Grotesque", system-ui, sans-serif; line-height: 0.9; }
+      h1 { max-width: 900px; font-size: clamp(4.5rem, 13vw, 13rem); font-weight: 800; letter-spacing: 0; }
+      .hero-card p { max-width: 680px; font-size: clamp(1.05rem, 1.5vw, 1.35rem); color: var(--muted); line-height: 1.45; }
+      .hero-stack { display: grid; gap: 22px; }
+      .mini {
+        min-height: 180px;
+        padding: 22px;
+        border-radius: 28px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+      .mini.one { background: var(--lime); }
+      .mini.two { background: var(--cyan); }
+      .mini.three { background: var(--orange); }
+      .mini strong { display: block; margin-bottom: 12px; font-family: "Bricolage Grotesque", sans-serif; font-size: 36px; line-height: 0.95; }
+
+      .section { padding: clamp(58px, 9vw, 110px) 0; }
+      .section-head { display: flex; justify-content: space-between; gap: 32px; margin-bottom: 24px; color: rgba(248, 242, 229, 0.72); font-weight: 800; text-transform: uppercase; }
+      .poster-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 18px;
+      }
+      .poster {
+        min-height: 420px;
+        grid-column: span 6;
+        overflow: hidden;
+        border-radius: 28px;
+        background: var(--paper);
+        color: var(--ink);
+      }
+      .poster.wide { grid-column: span 7; }
+      .poster.narrow { grid-column: span 5; }
+      .poster-body { padding: 24px; }
+      .poster h3 { font-size: clamp(2.5rem, 5vw, 5.8rem); }
+      .poster p { max-width: 560px; color: var(--muted); line-height: 1.55; }
+      .poster-shot { height: 230px; margin: 20px; border-radius: 20px; overflow: hidden; background: #e9dfcb; display: grid; place-items: center; color: var(--muted); font-weight: 800; }
+      .poster-shot img { width: 100%; height: 100%; object-fit: cover; }
+      .poster:nth-child(2) { background: #dfffd8; }
+      .poster:nth-child(3) { background: #dce8ff; }
+      .poster:nth-child(4) { background: #ffe1d4; }
+
+      .info-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .info {
+        min-height: 260px;
+        padding: 24px;
+        border-radius: 28px;
+        background: #1d1d1d;
+        color: rgba(248, 242, 229, 0.72);
+        line-height: 1.65;
+      }
+      .info h3 { margin-bottom: 18px; color: var(--paper); font-size: 34px; }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 22px;
+      }
+      .contact h2 {
+        padding: clamp(24px, 5vw, 54px);
+        border-radius: 28px;
+        background: var(--lime);
+        color: var(--ink);
+        font-size: clamp(3.2rem, 8vw, 8.8rem);
+      }
+      .links {
+        display: grid;
+        align-content: end;
+        gap: 12px;
+      }
+      .links a {
+        display: flex;
+        justify-content: space-between;
+        padding: 18px;
+        border-radius: 18px;
+        background: #242424;
+        color: rgba(248, 242, 229, 0.78);
+        font-weight: 800;
+      }
+
+      @media (max-width: 900px) {
+        .hero, .contact, .info-row { grid-template-columns: 1fr; }
+        .poster, .poster.wide, .poster.narrow { grid-column: span 12; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap">
+      <div class="nav">
+        <a href="#">Pranay Yadav</a>
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#info">Info</a>
+          <a href="#contact">Contact</a>
+          <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </div>
+      <section class="hero">
+        <div class="hero-card">
+          <h1>Work worth pinning to the wall.</h1>
+          <p>Visual portfolio direction: expressive, poster-like, and personal. It uses color and asymmetry without pretending to be a SaaS homepage.</p>
+        </div>
+        <aside class="hero-stack">
+          <div class="mini one"><strong>React / Next.js</strong>Interface systems and frontend craft.</div>
+          <div class="mini two"><strong>APIs</strong>Backend logic and data flow.</div>
+          <div class="mini three"><strong>Writing</strong>Hashnode and LinkedIn trail.</div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section id="work" class="section wrap">
+        <div class="section-head"><span>01 / Selected work</span><span>Five records</span></div>
+        <div class="poster-grid">
+          <article class="poster wide"><div class="poster-body"><h3>Devkit</h3><p>Developer tooling. Placeholder for workflow and outcome.</p></div><div class="poster-shot">Screenshot pending</div></article>
+          <article class="poster narrow"><div class="poster-body"><h3>Synaptics</h3><p>Systems/AI project with room for diagrams.</p></div><div class="poster-shot">Visual pending</div></article>
+          <article class="poster narrow"><div class="poster-body"><h3>ConverseX</h3><p>Realtime communication and interaction.</p></div><div class="poster-shot"><img src="/public/conversex.png" alt="ConverseX preview" /></div></article>
+          <article class="poster wide"><div class="poster-body"><h3>Flowify</h3><p>Workflow clarity and dashboard decisions.</p></div><div class="poster-shot"><img src="/public/flowify.png" alt="Flowify preview" /></div></article>
+          <article class="poster wide"><div class="poster-body"><h3>Stonkify</h3><p>Finance/data UI and information density.</p></div><div class="poster-shot"><img src="/public/stonkify.jpg" alt="Stonkify preview" /></div></article>
+        </div>
+      </section>
+
+      <section id="info" class="section wrap">
+        <div class="section-head"><span>02 / Info</span><span>Short and useful</span></div>
+        <div class="info-row">
+          <article class="info"><h3>About</h3>I like expressive interfaces that still sit on understandable systems.</article>
+          <article class="info"><h3>Stack</h3>React, Next.js, TypeScript, Tailwind, APIs, accessibility, performance.</article>
+          <article class="info"><h3>Writing</h3><a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode</a> and <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn</a>.</article>
+        </div>
+      </section>
+
+      <section id="contact" class="section wrap contact">
+        <h2>Say hello.</h2>
+        <div class="links">
+          <a href="mailto:hello@example.com">Email <span>pending</span></a>
+          <a href="https://www.linkedin.com/in/pranayyadav02/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+          <a href="https://pranayyadav.hashnode.dev/" target="_blank" rel="noreferrer">Hashnode <span>↗</span></a>
+          <a href="https://drive.google.com/drive/folders/13z1tyWNGUNsHO6Vl35ECYmEJZmmpJI4t?usp=drive_link" target="_blank" rel="noreferrer">Resume <span>↗</span></a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

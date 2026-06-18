@@ -1,13 +1,13 @@
-/* eslint-disable react/no-multi-comp */
+'use client';
+
 import {
-  Heading,
   Modal,
-  ModalOverlay,
   ModalContent,
   ModalHeader,
+  ModalTitle,
   ModalCloseButton,
   ModalBody,
-} from '@chakra-ui/react';
+} from '@/components/ui/modal';
 import styles from './skills.module.css';
 import { Skills, splitSkills } from '../../data/Skills';
 import SkillList from './SkillList';
@@ -27,15 +27,11 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
   const productivityCols = splitSkills(Skills['tools']);
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      motionPreset="slideInBottom"
-      scrollBehavior="inside"
-    >
-      <ModalOverlay />
+    <Modal open={isOpen} onOpenChange={onClose}>
       <ModalContent>
-        <ModalHeader>Full Skill Set List</ModalHeader>
+        <ModalHeader>
+          <ModalTitle>Full Skill Set List</ModalTitle>
+        </ModalHeader>
         <ModalCloseButton />
         <ModalBody className={styles.skillModal}>
           <SkillList title="Languages" columns={languageCols} />

@@ -39,4 +39,9 @@ yarn-error.log*
 *.tsbuildinfo
 
 #extras
-/data/
+/data/state_store.db/
+/data/stream_store/
+
+.agent/
+.codex/
+docs/

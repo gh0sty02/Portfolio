@@ -1,32 +1,25 @@
-import {
-  Box,
-  Container,
-  Heading,
-  SimpleGrid,
-  SlideFade,
-  Image,
-  Text,
-  ListItem,
-  List,
-  ListIcon,
-  useColorModeValue,
-  Divider,
-  theme,
-} from "@chakra-ui/react";
-import { BiRightArrow } from "react-icons/bi";
-import Paragraph from "components/utils/Paragraph";
-import { experience } from "data/experience";
-import Head from "next/head";
-import { Fragment } from "react";
+import { Container } from '@/components/ui/container';
+import { Divider } from '@/components/ui/divider';
+import { Heading } from '@/components/ui/heading';
+import { useTheme } from '@/hooks/use-theme';
+import { BiRightArrow } from 'react-icons/bi';
+import Paragraph from 'components/utils/Paragraph';
+import { experience } from 'data/experience';
+import Head from 'next/head';
+import { Fragment } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const ExperienceScreen = () => {
-  const svgColor = useColorModeValue("teal.500", "cyan.200");
-  console.log(theme.config.initialColorMode);
+  const { resolvedTheme } = useTheme();
+  const svgColor =
+    resolvedTheme === 'light' ? 'text-teal-500' : 'text-cyan-200';
+
   return (
     <>
       <Head>
         <title>Pranay Yadav | Experience</title>
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta
           name="description"
           content="Pranay Yadav | Full stack developer "
@@ -40,133 +33,89 @@ const ExperienceScreen = () => {
       </Head>
       <main>
         <Container maxW="container.lg">
-          <SlideFade in={true} offsetY={80}>
-            <Box mb={8}>
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="mb-8">
               <Heading
                 as="h1"
-                fontSize={{ base: "24px", md: "30px", lg: "36px" }}
+                fontSize={{ base: '24px', md: '30px', lg: '36px' }}
                 mb={4}
                 textTransform="uppercase"
               >
-                Places i’ve worked
+                Places i&apos;ve worked
               </Heading>
-              <Paragraph props={{ fontSize: "xl", lineHeight: "1.6" }}>
-                Here are Some places where I’ve worked!
+              <Paragraph props={{ fontSize: 'xl', lineHeight: '1.6' }}>
+                Here are Some places where I&apos;ve worked!
               </Paragraph>
-            </Box>
-          </SlideFade>
-          <Box>
+            </div>
+          </motion.div>
+          <div>
             {experience.map((exp, i) => (
-              <Box key={i}>
-                <Divider mb="4" />
-                <SlideFade in={true} offsetY={80}>
-                  <SimpleGrid
-                    key={exp.id}
-                    templateColumns={{
-                      sm: "1fr",
-                      md: "10rem repeat(3, 1fr)",
-                      lg: "10rem repeat(3, 1fr)",
-                    }}
-                    templateRows={{
-                      sm: "repeat(1, 4fr)",
-                      md: "repeat(3, 1fr)",
-                    }}
-                  >
-                    <Image
-                      w="100px"
-                      gridColumn="1"
-                      gridRow="1"
-                      src={exp.logo}
-                      alt={exp.title}
-                      mb={{ md: "2" }}
-                      objectFit="cover"
-                      justifySelf="center"
-                      alignSelf="center"
-                    />
+              <div key={i}>
+                <Divider my={4} />
+                <motion.div
+                  initial={{ opacity: 0, y: 80 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-[10rem_repeat(3,1fr)] grid-rows-1 md:grid-rows-3 gap-4">
+                    <div className="col-start-1 row-start-1 flex items-center justify-center mb-2 md:mb-0">
+                      <Image
+                        width={100}
+                        height={100}
+                        src={exp.logo}
+                        alt={exp.title}
+                        className="object-cover"
+                      />
+                    </div>
 
-                    <Box
-                      gridColumnStart={{ sm: 1, md: "2" }}
-                      gridColumnEnd={{ sm: 1, md: "5" }}
-                      mt={{ sm: 2 }}
-                    >
-                      <Heading as="h2" size="md">
+                    <div className="col-start-1 md:col-start-2 md:col-end-5 mt-0 md:mt-2">
+                      <Heading as="h2" className="text-xl font-semibold">
                         {exp.title}
                       </Heading>
-                      <Heading as="a" size="lg">
+                      <Heading as="h2" className="text-2xl font-bold">
                         #{exp.company}
                       </Heading>
-                      <Text fontFamily="Poppins" fontWeight="medium">
-                        {exp.duration}
-                      </Text>
-                    </Box>
-                    <Box
-                      gridColumnStart={1}
-                      gridColumnEnd={{ sm: 1, md: "5" }}
-                      gridRowStart={{ sm: 3, md: 2 }}
-                      gridRowEnd="5"
-                    >
-                      <List pt="4">
+                      <p className="font-poppins font-medium">{exp.duration}</p>
+                    </div>
+                    <div className="col-start-1 col-end-1 md:col-end-5 row-start-3 md:row-start-2 row-end-5">
+                      <ul className="pt-4 list-none">
                         {exp.description.map((desc) => {
                           return (
-                            <ListItem
-                              fontFamily="Poppins"
-                              fontSize="md"
-                              mb="1"
-                              key={exp.id + desc + ""}
-                              display="flex"
-                              alignItems="center"
-                              justifyContent="flex-start"
+                            <li
+                              key={exp.id + desc + ''}
+                              className="font-poppins text-base mb-1 flex items-center justify-start"
                             >
-                              <ListIcon
-                                as={BiRightArrow}
-                                color={svgColor}
-                                display="block"
-                                fontSize="20px"
+                              <BiRightArrow
+                                className={`${svgColor} text-xl mr-2 flex-shrink-0`}
                               />
-                              <Text
-                                as="span"
-                                display="block"
-                                variant="description"
-                              >
-                                {desc}
-                              </Text>
-                            </ListItem>
+                              <span className="block">{desc}</span>
+                            </li>
                           );
                         })}
                         {exp.certLink && (
-                          <ListItem
-                            fontFamily="Poppins"
-                            fontSize="md"
-                            mb="1"
-                            display="flex"
-                            alignItems="center"
-                            justifyContent="flex-start"
-                          >
-                            <ListIcon
-                              as={BiRightArrow}
-                              color={svgColor}
-                              display="block"
-                              fontSize="20px"
+                          <li className="font-poppins text-base mb-1 flex items-center justify-start">
+                            <BiRightArrow
+                              className={`${svgColor} text-xl mr-2 flex-shrink-0`}
                             />
-                            <Text
-                              as="a"
+                            <a
                               href={exp.certLink}
-                              display="block"
-                              color="green.500"
-                              fontWeight="medium"
-                              variant="description"
+                              className="block text-primary font-medium hover:underline"
                             >
                               Click here to view Certificate
-                            </Text>
-                          </ListItem>
+                            </a>
+                          </li>
                         )}
-                      </List>
-                    </Box>
-                  </SimpleGrid>
-                </SlideFade>
-              </Box>
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             ))}
-          </Box>
+          </div>
         </Container>
       </main>
     </>

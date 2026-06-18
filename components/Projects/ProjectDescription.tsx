@@ -1,66 +1,43 @@
-import {
-  Stack,
-  Box,
-  Heading,
-  Divider,
-  Button,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import Paragraph from "components/utils/Paragraph";
-import { IProjects } from "data/Projects";
-import React, { FC } from "react";
+'use client';
+
+import { Heading } from '@/components/ui/heading';
+import { Divider } from '@/components/ui/divider';
+import Paragraph from 'components/utils/Paragraph';
+import { IProjects } from 'data/Projects';
+import React, { FC } from 'react';
+import { useTheme } from '@/hooks/use-theme';
 
 const Content: FC<{ proj: IProjects }> = ({ proj }) => {
-  const bgColor = useColorModeValue("#e4e9ed", "#252525");
+  const { theme } = useTheme();
+  const bgColor = theme === 'light' ? '#e4e9ed' : '#252525';
+  const borderColor = theme === 'light' ? '#121212' : '#edf2f7';
+
   return (
-    <Stack
-      py="2"
-      px="6"
-      alignItems="center"
-      gridRowStart={{ base: "2", md: "1", lg: "1" }}
-      gap={2}
-      background={bgColor}
-      justifyContent="center"
+    <div
+      className="py-2 px-6 flex flex-col items-center justify-center gap-2 row-start-2 md:row-start-1 lg:row-start-1"
+      style={{ background: bgColor }}
     >
-      <Box alignSelf="flex-start">
-        <Text
-          display="inline"
-          fontSize="lg"
-          fontFamily="Poppins"
-          fontWeight="medium"
-          mr={2}
-          color="#595959"
-        >
+      <div className="self-start">
+        <span className="inline text-lg font-poppins font-medium mr-2 text-[#595959]">
           #{proj.id}
-        </Text>
-        <Heading
-          as="h2"
-          fontFamily="Poppins"
-          letterSpacing="2px"
-          display="inline"
-          fontWeight="medium"
-        >
+        </span>
+        <Heading as="h2" className="inline font-poppins tracking-wider font-medium">
           {proj.name}
         </Heading>
-      </Box>
-      <Divider my={1} />
+      </div>
+      <Divider className="my-1" />
       <Paragraph>{proj.description}</Paragraph>
 
-      <Button
-        as="a"
+      <a
         target="_blank"
+        rel="noopener noreferrer"
         href={proj.link}
-        size="md"
-        width="auto"
-        variant="outline"
-        justifySelf="flex-end"
-        mb={2}
-        borderColor={useColorModeValue("#121212", "#edf2f7")}
+        className="w-auto justify-self-end mb-2 px-4 py-2 rounded border transition-colors hover:bg-opacity-10"
+        style={{ borderColor }}
       >
-        View Project{" "}
-      </Button>
-    </Stack>
+        View Project
+      </a>
+    </div>
   );
 };
 
